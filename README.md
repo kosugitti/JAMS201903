@@ -19,5 +19,5 @@ Bayesian Modeling Tutorial at JAMS
 
   1. R/RStudio環境の準備
   2. Stanコードを書いてみる
-  3. その後の学習に向けて(futher readings)## Welcome to GitHub Pages
+  3. その後の学習に向けて(futher readings)
 
