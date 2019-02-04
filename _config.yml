@@ -3,3 +3,10 @@ title: Bayesian Modeling Tutorial at JAMS
 description: 2019.03.06 at 立命館大学衣笠キャンパス
 show_downloads: true
 google_analytics:
+navbar: 
+  title: "My ウェブサイト"
+  left:
+    - text: "ホーム"
+      href: index.html
+    - text: "趣味"
+      href: shumi.html
