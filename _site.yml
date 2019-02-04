@@ -1,10 +1,10 @@
-name: "サイトタイトル"
+name: "Bayesian Modeling Tutorial at JAMS"
 navbar: 
-  title: "My ウェブサイト"
+  title: "Bayesian Modeling Tutorial at JAMS"
   left:
     - text: "ホーム"
       href: index.html
-    - text: "趣味"
+    - text: "課題"
       href: shumi.html
 output:
   html_document:
