@@ -1,0 +1,144 @@
+---
+title: "brmsパッケージを使って"
+output: html_document
+---
+
+# 準備
+
+## パッケージの読み込み
+
+```{r cars}
+library(brms)
+library(tidyverse)
+```
+
+
+## データ
+
+今回使うデータははRの持っているサンプルデータです。
+車のメーカ(manufacture)，モデル(model)，排気量(displ)，製造年(year)，気筒数(cyl)，オートマ・マニュアルの別(trans),
+駆動輪(drv)，市街地での燃費(cty)，高速道路での燃費(hwy)などからなるデータセットです。
+
+```{r dataplot}
+data(mpg)
+# 少しみてみる
+head(mpg)
+```
+
+
+## 可視化してみましょう
+
+排気量と市街地での燃費の関係をグラフにします。
+```{r}
+g <- ggplot(mpg,aes(x=displ,y=cty))+geom_point()
+plot(g)
+```
+
+回帰線を追加します。
+```{r}
+g <- g + geom_smooth(method='lm')
+plot(g)
+```
+
+# 最尤法による回帰
+
+```{r}
+summary(lm(cty~displ,data=mpg))
+```
+
+# 回帰線のベイズ推定
+
+```{r}
+result.brm <- brm(cty~displ,data=mpg)
+result.brm
+```
+
+# 結果のプロット
+
+## 事後分布とトレースプロット
+
+```{r}
+plot(result.brm)
+```
+
+## MCMCサンプルをみてみる
+
+```{r}
+# 取り出し -> データフレーム型へ　-> 頭の10行だけ表示
+rstan::extract(result.brm$fit) %>% data.frame %>% head(10)
+```
+
+
+
+## 回帰線のグラフ
+
+```{r}
+plot(marginal_effects(result.brm))
+```
+
+## 事後予測分布
+
+```{r}
+pp_check(result.brm)
+```
+
+## 事後予測分布
+
+```{r}
+predict(result.brm) %>% head(10)
+```
+
+## 分析に使ったstanコードも出力できる
+```{r}
+result.brm$model
+```
+
+# 階層線形モデル
+
+各群に回帰線を当てはめますが，その全体的な傾向も要約して表します。
+群ごとの散らばりを分布から作られているもの，と考えるところがミソです。
+
+##  ランダム切片モデル
+
+切片が群ごとに異なる，というモデルを考えます。
+今回は，15のメーカによって切片が違うとします。
+
+```{r}
+result.hlm1 <- brm(cty~displ+(1|manufacturer),data=mpg)
+```
+
+結果は次の通り。
+```{r}
+# 結果（要約）
+result.hlm1
+# 推定値
+result.hlm1$fit
+# 作図
+mpg %>% 
+  cbind(fitted(result.hlm1)) %>% 
+  select(cty, displ, manufacturer, y_hat = Estimate) %>% 
+  ggplot(aes(displ, y_hat, color = manufacturer)) +
+  geom_smooth(method = "lm", se = FALSE) +
+  geom_point(aes(y = cty)) + ylab("cty")
+```
+
+## ランダム係数モデル
+
+```{r}
+result.hlm2 <- brm(cty~displ+(displ|manufacturer),data=mpg)
+```
+結果は次の通り。
+```{r}
+# 結果（要約）
+result.hlm2
+# 推定値
+result.hlm2$fit
+# 作図
+mpg %>% 
+  cbind(fitted(result.hlm2)) %>% 
+  select(cty, displ, manufacturer, y_hat = Estimate) %>% 
+  ggplot(aes(displ, y_hat, color = manufacturer)) +
+  geom_smooth(method = "lm", se = FALSE) +
+  geom_point(aes(y = cty)) + ylab("cty")
+```
+

@@ -1,0 +1,42 @@
+---
+title: "Stanを使った実習"
+output: html_document
+---
+
+## 7scientist 
+
+### データを入力します。
+```{r seven socientist}
+## パッケージの読み込み
+library(rstan)
+library(tidyverse)
+## データの準備
+X <- c(-27.020,3.570,8.191,9.808,9.603,9.945,10.056)
+sc7 <- list(N=NROW(X),X=X)
+```
+
+### モデルをコンパイル
+```{r,results="hide"}
+## モデルコンパイル
+model <- stan_model("SevenScientist.stan")
+```
+
+### コンパイルするためのソースコード
+```{r, echo=FALSE, eval=TRUE}
+paste(readLines("SevenScientist.stan"), collapse = "\n") %>% cat()
+```
+
+
+### 推定
+
+```{r}
+fit <- sampling(model,sc7,iter=3000,warmup=1000,chains=4,thin=1)
+```
+
+```{r}
+##  表示
+fit
+## 描画
+plot(fit,pars=c("sig[1]","sig[2]","sig[3]","sig[4]",
+                "sig[5]","sig[6]","sig[7]"),show_density=T)
+```

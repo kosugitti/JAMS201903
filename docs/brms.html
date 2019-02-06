@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>brmsパッケージを使って</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="site_style.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Bayesian Modeling Tutorial at JAMS</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">事前準備</a>
+</li>
+<li>
+  <a href="brms.html">brmsを使った実践例</a>
+</li>
+<li>
+  <a href="stan.html">stanを使った実践例</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">brmsパッケージを使って</h1>
+
+</div>
+
+
+<div id="section" class="section level1">
+<h1>準備</h1>
+<div id="section-1" class="section level2">
+<h2>パッケージの読み込み</h2>
+<pre class="r"><code>library(brms)</code></pre>
+<pre><code>## Loading required package: Rcpp</code></pre>
+<pre><code>## Loading required package: ggplot2</code></pre>
+<pre><code>## Loading &#39;brms&#39; package (version 2.7.0). Useful instructions
+## can be found by typing help(&#39;brms&#39;). A more detailed introduction
+## to the package is available through vignette(&#39;brms_overview&#39;).
+## Run theme_set(theme_default()) to use the default bayesplot theme.</code></pre>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ─ Attaching packages ─────────────────────────────── tidyverse 1.2.1 ─</code></pre>
+<pre><code>## ✔ tibble  2.0.1     ✔ purrr   0.3.0
+## ✔ tidyr   0.8.2     ✔ dplyr   0.7.8
+## ✔ readr   1.3.1     ✔ stringr 1.3.1
+## ✔ tibble  2.0.1     ✔ forcats 0.3.0</code></pre>
+<pre><code>## ─ Conflicts ───────────────────────────────── tidyverse_conflicts() ─
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()</code></pre>
+</div>
+<div id="section-2" class="section level2">
+<h2>データ</h2>
+<p>今回使うデータははRの持っているサンプルデータです。 車のメーカ(manufacture)，モデル(model)，排気量(displ)，製造年(year)，気筒数(cyl)，オートマ・マニュアルの別(trans), 駆動輪(drv)，市街地での燃費(cty)，高速道路での燃費(hwy)などからなるデータセットです。</p>
+<pre class="r"><code>data(mpg)
+# 少しみてみる
+head(mpg)</code></pre>
+<div class="kable-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">manufacturer</th>
+<th align="left">model</th>
+<th align="right">displ</th>
+<th align="right">year</th>
+<th align="right">cyl</th>
+<th align="left">trans</th>
+<th align="left">drv</th>
+<th align="right">cty</th>
+<th align="right">hwy</th>
+<th align="left">fl</th>
+<th align="left">class</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">audi</td>
+<td align="left">a4</td>
+<td align="right">1.8</td>
+<td align="right">1999</td>
+<td align="right">4</td>
+<td align="left">auto(l5)</td>
+<td align="left">f</td>
+<td align="right">18</td>
+<td align="right">29</td>
+<td align="left">p</td>
+<td align="left">compact</td>
+</tr>
+<tr class="even">
+<td align="left">audi</td>
+<td align="left">a4</td>
+<td align="right">1.8</td>
+<td align="right">1999</td>
+<td align="right">4</td>
+<td align="left">manual(m5)</td>
+<td align="left">f</td>
+<td align="right">21</td>
+<td align="right">29</td>
+<td align="left">p</td>
+<td align="left">compact</td>
+</tr>
+<tr class="odd">
+<td align="left">audi</td>
+<td align="left">a4</td>
+<td align="right">2.0</td>
+<td align="right">2008</td>
+<td align="right">4</td>
+<td align="left">manual(m6)</td>
+<td align="left">f</td>
+<td align="right">20</td>
+<td align="right">31</td>
+<td align="left">p</td>
+<td align="left">compact</td>
+</tr>
+<tr class="even">
+<td align="left">audi</td>
+<td align="left">a4</td>
+<td align="right">2.0</td>
+<td align="right">2008</td>
+<td align="right">4</td>
+<td align="left">auto(av)</td>
+<td align="left">f</td>
+<td align="right">21</td>
+<td align="right">30</td>
+<td align="left">p</td>
+<td align="left">compact</td>
+</tr>
+<tr class="odd">
+<td align="left">audi</td>
+<td align="left">a4</td>
+<td align="right">2.8</td>
+<td align="right">1999</td>
+<td align="right">6</td>
+<td align="left">auto(l5)</td>
+<td align="left">f</td>
+<td align="right">16</td>
+<td align="right">26</td>
+<td align="left">p</td>
+<td align="left">compact</td>
+</tr>
+<tr class="even">
+<td align="left">audi</td>
+<td align="left">a4</td>
+<td align="right">2.8</td>
+<td align="right">1999</td>
+<td align="right">6</td>
+<td align="left">manual(m5)</td>
+<td align="left">f</td>
+<td align="right">18</td>
+<td align="right">26</td>
+<td align="left">p</td>
+<td align="left">compact</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="section-3" class="section level2">
+<h2>可視化してみましょう</h2>
+<p>排気量と市街地での燃費の関係をグラフにします。</p>
+<pre class="r"><code>g &lt;- ggplot(mpg,aes(x=displ,y=cty))+geom_point()
+plot(g)</code></pre>
+<p><img src="brms_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>回帰線を追加します。</p>
+<pre class="r"><code>g &lt;- g + geom_smooth(method=&#39;lm&#39;)
+plot(g)</code></pre>
+<p><img src="brms_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+</div>
+</div>
+<div id="section-4" class="section level1">
+<h1>最尤法による回帰</h1>
+<pre class="r"><code>summary(lm(cty~displ,data=mpg))</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = cty ~ displ, data = mpg)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -6.3109 -1.4695 -0.2566  1.1087 14.0064 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  25.9915     0.4821   53.91   &lt;2e-16 ***
+## displ        -2.6305     0.1302  -20.20   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2.567 on 232 degrees of freedom
+## Multiple R-squared:  0.6376, Adjusted R-squared:  0.6361 
+## F-statistic: 408.2 on 1 and 232 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<div id="section-5" class="section level1">
+<h1>回帰線のベイズ推定</h1>
+<pre class="r"><code>result.brm &lt;- brm(cty~displ,data=mpg)</code></pre>
+<pre><code>## Compiling the C++ model</code></pre>
+<pre><code>## Start sampling</code></pre>
+<pre><code>## 
+## SAMPLING FOR MODEL &#39;7e5af2e7cd64c4d926e4c21aec634789&#39; NOW (CHAIN 1).
+## Chain 1: 
+## Chain 1: Gradient evaluation took 4.6e-05 seconds
+## Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 0.46 seconds.
+## Chain 1: Adjust your expectations accordingly!
+## Chain 1: 
+## Chain 1: 
+## Chain 1: Iteration:    1 / 2000 [  0%]  (Warmup)
+## Chain 1: Iteration:  200 / 2000 [ 10%]  (Warmup)
+## Chain 1: Iteration:  400 / 2000 [ 20%]  (Warmup)
+## Chain 1: Iteration:  600 / 2000 [ 30%]  (Warmup)
+## Chain 1: Iteration:  800 / 2000 [ 40%]  (Warmup)
+## Chain 1: Iteration: 1000 / 2000 [ 50%]  (Warmup)
+## Chain 1: Iteration: 1001 / 2000 [ 50%]  (Sampling)
+## Chain 1: Iteration: 1200 / 2000 [ 60%]  (Sampling)
+## Chain 1: Iteration: 1400 / 2000 [ 70%]  (Sampling)
+## Chain 1: Iteration: 1600 / 2000 [ 80%]  (Sampling)
+## Chain 1: Iteration: 1800 / 2000 [ 90%]  (Sampling)
+## Chain 1: Iteration: 2000 / 2000 [100%]  (Sampling)
+## Chain 1: 
+## Chain 1:  Elapsed Time: 0.059358 seconds (Warm-up)
+## Chain 1:                0.137584 seconds (Sampling)
+## Chain 1:                0.196942 seconds (Total)
+## Chain 1: 
+## 
+## SAMPLING FOR MODEL &#39;7e5af2e7cd64c4d926e4c21aec634789&#39; NOW (CHAIN 2).
+## Chain 2: 
+## Chain 2: Gradient evaluation took 1.2e-05 seconds
+## Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 0.12 seconds.
+## Chain 2: Adjust your expectations accordingly!
+## Chain 2: 
+## Chain 2: 
+## Chain 2: Iteration:    1 / 2000 [  0%]  (Warmup)
+## Chain 2: Iteration:  200 / 2000 [ 10%]  (Warmup)
+## Chain 2: Iteration:  400 / 2000 [ 20%]  (Warmup)
+## Chain 2: Iteration:  600 / 2000 [ 30%]  (Warmup)
+## Chain 2: Iteration:  800 / 2000 [ 40%]  (Warmup)
+## Chain 2: Iteration: 1000 / 2000 [ 50%]  (Warmup)
+## Chain 2: Iteration: 1001 / 2000 [ 50%]  (Sampling)
+## Chain 2: Iteration: 1200 / 2000 [ 60%]  (Sampling)
+## Chain 2: Iteration: 1400 / 2000 [ 70%]  (Sampling)
+## Chain 2: Iteration: 1600 / 2000 [ 80%]  (Sampling)
+## Chain 2: Iteration: 1800 / 2000 [ 90%]  (Sampling)
+## Chain 2: Iteration: 2000 / 2000 [100%]  (Sampling)
+## Chain 2: 
+## Chain 2:  Elapsed Time: 0.057717 seconds (Warm-up)
+## Chain 2:                0.118966 seconds (Sampling)
+## Chain 2:                0.176683 seconds (Total)
+## Chain 2: 
+## 
+## SAMPLING FOR MODEL &#39;7e5af2e7cd64c4d926e4c21aec634789&#39; NOW (CHAIN 3).
+## Chain 3: 
+## Chain 3: Gradient evaluation took 1.2e-05 seconds
+## Chain 3: 1000 transitions using 10 leapfrog steps per transition would take 0.12 seconds.
+## Chain 3: Adjust your expectations accordingly!
+## Chain 3: 
+## Chain 3: 
+## Chain 3: Iteration:    1 / 2000 [  0%]  (Warmup)
+## Chain 3: Iteration:  200 / 2000 [ 10%]  (Warmup)
+## Chain 3: Iteration:  400 / 2000 [ 20%]  (Warmup)
+## Chain 3: Iteration:  600 / 2000 [ 30%]  (Warmup)
+## Chain 3: Iteration:  800 / 2000 [ 40%]  (Warmup)
+## Chain 3: Iteration: 1000 / 2000 [ 50%]  (Warmup)
+## Chain 3: Iteration: 1001 / 2000 [ 50%]  (Sampling)
+## Chain 3: Iteration: 1200 / 2000 [ 60%]  (Sampling)
+## Chain 3: Iteration: 1400 / 2000 [ 70%]  (Sampling)
+## Chain 3: Iteration: 1600 / 2000 [ 80%]  (Sampling)
+## Chain 3: Iteration: 1800 / 2000 [ 90%]  (Sampling)
+## Chain 3: Iteration: 2000 / 2000 [100%]  (Sampling)
+## Chain 3: 
+## Chain 3:  Elapsed Time: 0.059269 seconds (Warm-up)
+## Chain 3:                0.072224 seconds (Sampling)
+## Chain 3:                0.131493 seconds (Total)
+## Chain 3: 
+## 
+## SAMPLING FOR MODEL &#39;7e5af2e7cd64c4d926e4c21aec634789&#39; NOW (CHAIN 4).
+## Chain 4: 
+## Chain 4: Gradient evaluation took 1.2e-05 seconds
+## Chain 4: 1000 transitions using 10 leapfrog steps per transition would take 0.12 seconds.
+## Chain 4: Adjust your expectations accordingly!
+## Chain 4: 
+## Chain 4: 
+## Chain 4: Iteration:    1 / 2000 [  0%]  (Warmup)
+## Chain 4: Iteration:  200 / 2000 [ 10%]  (Warmup)
+## Chain 4: Iteration:  400 / 2000 [ 20%]  (Warmup)
+## Chain 4: Iteration:  600 / 2000 [ 30%]  (Warmup)
+## Chain 4: Iteration:  800 / 2000 [ 40%]  (Warmup)
+## Chain 4: Iteration: 1000 / 2000 [ 50%]  (Warmup)
+## Chain 4: Iteration: 1001 / 2000 [ 50%]  (Sampling)
+## Chain 4: Iteration: 1200 / 2000 [ 60%]  (Sampling)
+## Chain 4: Iteration: 1400 / 2000 [ 70%]  (Sampling)
+## Chain 4: Iteration: 1600 / 2000 [ 80%]  (Sampling)
+## Chain 4: Iteration: 1800 / 2000 [ 90%]  (Sampling)
+## Chain 4: Iteration: 2000 / 2000 [100%]  (Sampling)
+## Chain 4: 
+## Chain 4:  Elapsed Time: 0.062521 seconds (Warm-up)
+## Chain 4:                0.098909 seconds (Sampling)
+## Chain 4:                0.16143 seconds (Total)
+## Chain 4:</code></pre>
+<pre class="r"><code>result.brm</code></pre>
+<pre><code>##  Family: gaussian 
+##   Links: mu = identity; sigma = identity 
+## Formula: cty ~ displ 
+##    Data: mpg (Number of observations: 234) 
+## Samples: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
+##          total post-warmup samples = 4000
+## 
+## Population-Level Effects: 
+##           Estimate Est.Error l-95% CI u-95% CI Eff.Sample Rhat
+## Intercept    25.99      0.48    25.05    26.98       3531 1.00
+## displ        -2.63      0.13    -2.89    -2.37       3611 1.00
+## 
+## Family Specific Parameters: 
+##       Estimate Est.Error l-95% CI u-95% CI Eff.Sample Rhat
+## sigma     2.58      0.12     2.35     2.83       3247 1.00
+## 
+## Samples were drawn using sampling(NUTS). For each parameter, Eff.Sample 
+## is a crude measure of effective sample size, and Rhat is the potential 
+## scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
+</div>
+<div id="section-6" class="section level1">
+<h1>結果のプロット</h1>
+<div id="section-7" class="section level2">
+<h2>事後分布とトレースプロット</h2>
+<pre class="r"><code>plot(result.brm)</code></pre>
+<p><img src="brms_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+</div>
+<div id="mcmc" class="section level2">
+<h2>MCMCサンプルをみてみる</h2>
+<pre class="r"><code># 取り出し -&gt; データフレーム型へ　-&gt; 頭の10行だけ表示
+rstan::extract(result.brm$fit) %&gt;% data.frame %&gt;% head(10)</code></pre>
+<div class="kable-table">
+<table>
+<thead>
+<tr class="header">
+<th align="right">b_Intercept</th>
+<th align="right">b</th>
+<th align="right">sigma</th>
+<th align="right">lp__</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">25.32754</td>
+<td align="right">-2.505499</td>
+<td align="right">2.495546</td>
+<td align="right">-558.3290</td>
+</tr>
+<tr class="even">
+<td align="right">26.01137</td>
+<td align="right">-2.663833</td>
+<td align="right">2.769231</td>
+<td align="right">-558.2016</td>
+</tr>
+<tr class="odd">
+<td align="right">26.60073</td>
+<td align="right">-2.842141</td>
+<td align="right">2.847119</td>
+<td align="right">-560.4204</td>
+</tr>
+<tr class="even">
+<td align="right">26.27357</td>
+<td align="right">-2.778105</td>
+<td align="right">2.597405</td>
+<td align="right">-558.2799</td>
+</tr>
+<tr class="odd">
+<td align="right">26.56755</td>
+<td align="right">-2.851238</td>
+<td align="right">2.338164</td>
+<td align="right">-561.2578</td>
+</tr>
+<tr class="even">
+<td align="right">25.74207</td>
+<td align="right">-2.553108</td>
+<td align="right">2.926084</td>
+<td align="right">-560.6135</td>
+</tr>
+<tr class="odd">
+<td align="right">25.98330</td>
+<td align="right">-2.694318</td>
+<td align="right">2.528800</td>
+<td align="right">-557.8149</td>
+</tr>
+<tr class="even">
+<td align="right">26.56585</td>
+<td align="right">-2.779602</td>
+<td align="right">2.551396</td>
+<td align="right">-557.4109</td>
+</tr>
+<tr class="odd">
+<td align="right">25.90614</td>
+<td align="right">-2.534484</td>
+<td align="right">2.770865</td>
+<td align="right">-559.2231</td>
+</tr>
+<tr class="even">
+<td align="right">26.19858</td>
+<td align="right">-2.683058</td>
+<td align="right">2.546789</td>
+<td align="right">-556.7868</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="section-8" class="section level2">
+<h2>回帰線のグラフ</h2>
+<pre class="r"><code>plot(marginal_effects(result.brm))</code></pre>
+<p><img src="brms_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+</div>
+<div id="section-9" class="section level2">
+<h2>事後予測分布</h2>
+<pre class="r"><code>pp_check(result.brm)</code></pre>
+<pre><code>## Using 10 posterior samples for ppc type &#39;dens_overlay&#39; by default.</code></pre>
+<p><img src="brms_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+</div>
+<div id="section-10" class="section level2">
+<h2>事後予測分布</h2>
+<pre class="r"><code>predict(result.brm) %&gt;% head(10)</code></pre>
+<pre><code>##       Estimate Est.Error     Q2.5    Q97.5
+##  [1,] 21.27544  2.613619 16.16085 26.27238
+##  [2,] 21.29812  2.588605 16.30783 26.36764
+##  [3,] 20.76958  2.612331 15.65793 25.88000
+##  [4,] 20.66029  2.634569 15.47890 25.88777
+##  [5,] 18.65911  2.561064 13.71774 23.77279
+##  [6,] 18.63998  2.481762 13.76210 23.47755
+##  [7,] 17.87146  2.580720 12.77256 22.80609
+##  [8,] 21.30714  2.578703 16.12662 26.36242
+##  [9,] 21.28131  2.599886 16.36621 26.49345
+## [10,] 20.67623  2.619114 15.50172 25.80990</code></pre>
+</div>
+<div id="stan" class="section level2">
+<h2>分析に使ったstanコードも出力できる</h2>
+<pre class="r"><code>result.brm$model</code></pre>
+<pre><code>## // generated with brms 2.7.0
+## functions { 
+## } 
+## data { 
+##   int&lt;lower=1&gt; N;  // total number of observations 
+##   vector[N] Y;  // response variable 
+##   int&lt;lower=1&gt; K;  // number of population-level effects 
+##   matrix[N, K] X;  // population-level design matrix 
+##   int prior_only;  // should the likelihood be ignored? 
+## } 
+## transformed data { 
+##   int Kc = K - 1; 
+##   matrix[N, K - 1] Xc;  // centered version of X 
+##   vector[K - 1] means_X;  // column means of X before centering 
+##   for (i in 2:K) { 
+##     means_X[i - 1] = mean(X[, i]); 
+##     Xc[, i - 1] = X[, i] - means_X[i - 1]; 
+##   } 
+## } 
+## parameters { 
+##   vector[Kc] b;  // population-level effects 
+##   real temp_Intercept;  // temporary intercept 
+##   real&lt;lower=0&gt; sigma;  // residual SD 
+## } 
+## transformed parameters { 
+## } 
+## model { 
+##   vector[N] mu = temp_Intercept + Xc * b;
+##   // priors including all constants 
+##   target += student_t_lpdf(temp_Intercept | 3, 17, 10); 
+##   target += student_t_lpdf(sigma | 3, 0, 10)
+##     - 1 * student_t_lccdf(0 | 3, 0, 10); 
+##   // likelihood including all constants 
+##   if (!prior_only) { 
+##     target += normal_lpdf(Y | mu, sigma);
+##   } 
+## } 
+## generated quantities { 
+##   // actual population-level intercept 
+##   real b_Intercept = temp_Intercept - dot_product(means_X, b); 
+## }</code></pre>
+</div>
+</div>
+<div id="section-11" class="section level1">
+<h1>階層線形モデル</h1>
+<p>各群に回帰線を当てはめますが，その全体的な傾向も要約して表します。 群ごとの散らばりを分布から作られているもの，と考えるところがミソです。</p>
+<div id="section-12" class="section level2">
+<h2>ランダム切片モデル</h2>
+<p>切片が群ごとに異なる，というモデルを考えます。 今回は，15のメーカによって切片が違うとします。</p>
+<pre class="r"><code>result.hlm1 &lt;- brm(cty~displ+(1|manufacturer),data=mpg)</code></pre>
+<pre><code>## Compiling the C++ model</code></pre>
+<pre><code>## Start sampling</code></pre>
+<pre><code>## 
+## SAMPLING FOR MODEL &#39;9fac491b11fc784e76e04c51fb3d0c72&#39; NOW (CHAIN 1).
+## Chain 1: 
+## Chain 1: Gradient evaluation took 4.8e-05 seconds
+## Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 0.48 seconds.
+## Chain 1: Adjust your expectations accordingly!
+## Chain 1: 
+## Chain 1: 
+## Chain 1: Iteration:    1 / 2000 [  0%]  (Warmup)
+## Chain 1: Iteration:  200 / 2000 [ 10%]  (Warmup)
+## Chain 1: Iteration:  400 / 2000 [ 20%]  (Warmup)
+## Chain 1: Iteration:  600 / 2000 [ 30%]  (Warmup)
+## Chain 1: Iteration:  800 / 2000 [ 40%]  (Warmup)
+## Chain 1: Iteration: 1000 / 2000 [ 50%]  (Warmup)
+## Chain 1: Iteration: 1001 / 2000 [ 50%]  (Sampling)
+## Chain 1: Iteration: 1200 / 2000 [ 60%]  (Sampling)
+## Chain 1: Iteration: 1400 / 2000 [ 70%]  (Sampling)
+## Chain 1: Iteration: 1600 / 2000 [ 80%]  (Sampling)
+## Chain 1: Iteration: 1800 / 2000 [ 90%]  (Sampling)
+## Chain 1: Iteration: 2000 / 2000 [100%]  (Sampling)
+## Chain 1: 
+## Chain 1:  Elapsed Time: 0.312557 seconds (Warm-up)
+## Chain 1:                0.247607 seconds (Sampling)
+## Chain 1:                0.560164 seconds (Total)
+## Chain 1: 
+## 
+## SAMPLING FOR MODEL &#39;9fac491b11fc784e76e04c51fb3d0c72&#39; NOW (CHAIN 2).
+## Chain 2: 
+## Chain 2: Gradient evaluation took 1.9e-05 seconds
+## Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 0.19 seconds.
+## Chain 2: Adjust your expectations accordingly!
+## Chain 2: 
+## Chain 2: 
+## Chain 2: Iteration:    1 / 2000 [  0%]  (Warmup)
+## Chain 2: Iteration:  200 / 2000 [ 10%]  (Warmup)
+## Chain 2: Iteration:  400 / 2000 [ 20%]  (Warmup)
+## Chain 2: Iteration:  600 / 2000 [ 30%]  (Warmup)
+## Chain 2: Iteration:  800 / 2000 [ 40%]  (Warmup)
+## Chain 2: Iteration: 1000 / 2000 [ 50%]  (Warmup)
+## Chain 2: Iteration: 1001 / 2000 [ 50%]  (Sampling)
+## Chain 2: Iteration: 1200 / 2000 [ 60%]  (Sampling)
+## Chain 2: Iteration: 1400 / 2000 [ 70%]  (Sampling)
+## Chain 2: Iteration: 1600 / 2000 [ 80%]  (Sampling)
+## Chain 2: Iteration: 1800 / 2000 [ 90%]  (Sampling)
+## Chain 2: Iteration: 2000 / 2000 [100%]  (Sampling)
+## Chain 2: 
+## Chain 2:  Elapsed Time: 0.313134 seconds (Warm-up)
+## Chain 2:                0.267471 seconds (Sampling)
+## Chain 2:                0.580605 seconds (Total)
+## Chain 2: 
+## 
+## SAMPLING FOR MODEL &#39;9fac491b11fc784e76e04c51fb3d0c72&#39; NOW (CHAIN 3).
+## Chain 3: 
+## Chain 3: Gradient evaluation took 1.7e-05 seconds
+## Chain 3: 1000 transitions using 10 leapfrog steps per transition would take 0.17 seconds.
+## Chain 3: Adjust your expectations accordingly!
+## Chain 3: 
+## Chain 3: 
+## Chain 3: Iteration:    1 / 2000 [  0%]  (Warmup)
+## Chain 3: Iteration:  200 / 2000 [ 10%]  (Warmup)
+## Chain 3: Iteration:  400 / 2000 [ 20%]  (Warmup)
+## Chain 3: Iteration:  600 / 2000 [ 30%]  (Warmup)
+## Chain 3: Iteration:  800 / 2000 [ 40%]  (Warmup)
+## Chain 3: Iteration: 1000 / 2000 [ 50%]  (Warmup)
+## Chain 3: Iteration: 1001 / 2000 [ 50%]  (Sampling)
+## Chain 3: Iteration: 1200 / 2000 [ 60%]  (Sampling)
+## Chain 3: Iteration: 1400 / 2000 [ 70%]  (Sampling)
+## Chain 3: Iteration: 1600 / 2000 [ 80%]  (Sampling)
+## Chain 3: Iteration: 1800 / 2000 [ 90%]  (Sampling)
+## Chain 3: Iteration: 2000 / 2000 [100%]  (Sampling)
+## Chain 3: 
+## Chain 3:  Elapsed Time: 0.302935 seconds (Warm-up)
+## Chain 3:                0.240799 seconds (Sampling)
+## Chain 3:                0.543734 seconds (Total)
+## Chain 3: 
+## 
+## SAMPLING FOR MODEL &#39;9fac491b11fc784e76e04c51fb3d0c72&#39; NOW (CHAIN 4).
+## Chain 4: 
+## Chain 4: Gradient evaluation took 1.8e-05 seconds
+## Chain 4: 1000 transitions using 10 leapfrog steps per transition would take 0.18 seconds.
+## Chain 4: Adjust your expectations accordingly!
+## Chain 4: 
+## Chain 4: 
+## Chain 4: Iteration:    1 / 2000 [  0%]  (Warmup)
+## Chain 4: Iteration:  200 / 2000 [ 10%]  (Warmup)
+## Chain 4: Iteration:  400 / 2000 [ 20%]  (Warmup)
+## Chain 4: Iteration:  600 / 2000 [ 30%]  (Warmup)
+## Chain 4: Iteration:  800 / 2000 [ 40%]  (Warmup)
+## Chain 4: Iteration: 1000 / 2000 [ 50%]  (Warmup)
+## Chain 4: Iteration: 1001 / 2000 [ 50%]  (Sampling)
+## Chain 4: Iteration: 1200 / 2000 [ 60%]  (Sampling)
+## Chain 4: Iteration: 1400 / 2000 [ 70%]  (Sampling)
+## Chain 4: Iteration: 1600 / 2000 [ 80%]  (Sampling)
+## Chain 4: Iteration: 1800 / 2000 [ 90%]  (Sampling)
+## Chain 4: Iteration: 2000 / 2000 [100%]  (Sampling)
+## Chain 4: 
+## Chain 4:  Elapsed Time: 0.302486 seconds (Warm-up)
+## Chain 4:                0.258272 seconds (Sampling)
+## Chain 4:                0.560758 seconds (Total)
+## Chain 4:</code></pre>
+<p>結果は次の通り。</p>
+<pre class="r"><code># 結果（要約）
+result.hlm1</code></pre>
+<pre><code>##  Family: gaussian 
+##   Links: mu = identity; sigma = identity 
+## Formula: cty ~ displ + (1 | manufacturer) 
+##    Data: mpg (Number of observations: 234) 
+## Samples: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
+##          total post-warmup samples = 4000
+## 
+## Group-Level Effects: 
+## ~manufacturer (Number of levels: 15) 
+##               Estimate Est.Error l-95% CI u-95% CI Eff.Sample Rhat
+## sd(Intercept)     1.52      0.40     0.91     2.46        922 1.00
+## 
+## Population-Level Effects: 
+##           Estimate Est.Error l-95% CI u-95% CI Eff.Sample Rhat
+## Intercept    25.52      0.76    23.99    26.99       1767 1.00
+## displ        -2.50      0.18    -2.85    -2.16       2927 1.00
+## 
+## Family Specific Parameters: 
+##       Estimate Est.Error l-95% CI u-95% CI Eff.Sample Rhat
+## sigma     2.29      0.11     2.08     2.51       4468 1.00
+## 
+## Samples were drawn using sampling(NUTS). For each parameter, Eff.Sample 
+## is a crude measure of effective sample size, and Rhat is the potential 
+## scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
+<pre class="r"><code># 推定値
+result.hlm1$fit</code></pre>
+<pre><code>## Inference for Stan model: 9fac491b11fc784e76e04c51fb3d0c72.
+## 4 chains, each with iter=2000; warmup=1000; thin=1; 
+## post-warmup draws per chain=1000, total post-warmup draws=4000.
+## 
+##                                         mean se_mean   sd    2.5%     25%
+## b_Intercept                            25.52    0.02 0.76   23.99   25.01
+## b_displ                                -2.50    0.00 0.18   -2.85   -2.62
+## sd_manufacturer__Intercept              1.52    0.01 0.40    0.91    1.23
+## sigma                                   2.29    0.00 0.11    2.08    2.21
+## r_manufacturer[audi,Intercept]         -1.36    0.01 0.65   -2.67   -1.79
+## r_manufacturer[chevrolet,Intercept]     1.88    0.01 0.68    0.58    1.43
+## r_manufacturer[dodge,Intercept]        -1.35    0.01 0.57   -2.47   -1.72
+## r_manufacturer[ford,Intercept]         -0.16    0.01 0.62   -1.41   -0.57
+## r_manufacturer[honda,Intercept]         2.48    0.02 0.85    0.86    1.88
+## r_manufacturer[hyundai,Intercept]      -0.68    0.01 0.68   -2.03   -1.13
+## r_manufacturer[jeep,Intercept]         -0.44    0.01 0.80   -2.01   -0.98
+## r_manufacturer[land.rover,Intercept]   -2.00    0.02 1.03   -4.15   -2.65
+## r_manufacturer[lincoln,Intercept]      -0.36    0.02 1.04   -2.46   -1.05
+## r_manufacturer[mercury,Intercept]      -0.78    0.02 0.98   -2.72   -1.42
+## r_manufacturer[nissan,Intercept]        0.61    0.01 0.70   -0.77    0.12
+## r_manufacturer[pontiac,Intercept]       0.91    0.02 0.90   -0.89    0.32
+## r_manufacturer[subaru,Intercept]       -0.07    0.02 0.71   -1.47   -0.53
+## r_manufacturer[toyota,Intercept]        0.36    0.01 0.56   -0.73    0.00
+## r_manufacturer[volkswagen,Intercept]    0.96    0.01 0.61   -0.21    0.54
+## lp__                                 -552.96    0.15 4.34 -562.42 -555.71
+##                                          50%     75%   97.5% n_eff Rhat
+## b_Intercept                            25.54   26.03   26.99  1767    1
+## b_displ                                -2.50   -2.38   -2.16  2927    1
+## sd_manufacturer__Intercept              1.45    1.74    2.46   922    1
+## sigma                                   2.28    2.36    2.51  4468    1
+## r_manufacturer[audi,Intercept]         -1.35   -0.92   -0.08  2177    1
+## r_manufacturer[chevrolet,Intercept]     1.88    2.32    3.19  2420    1
+## r_manufacturer[dodge,Intercept]        -1.33   -0.97   -0.28  1816    1
+## r_manufacturer[ford,Intercept]         -0.14    0.26    1.09  2067    1
+## r_manufacturer[honda,Intercept]         2.46    3.03    4.23  2218    1
+## r_manufacturer[hyundai,Intercept]      -0.68   -0.23    0.66  2175    1
+## r_manufacturer[jeep,Intercept]         -0.43    0.11    1.11  3125    1
+## r_manufacturer[land.rover,Intercept]   -1.96   -1.32   -0.06  2984    1
+## r_manufacturer[lincoln,Intercept]      -0.34    0.33    1.62  3853    1
+## r_manufacturer[mercury,Intercept]      -0.76   -0.13    1.11  3361    1
+## r_manufacturer[nissan,Intercept]        0.61    1.07    2.00  2434    1
+## r_manufacturer[pontiac,Intercept]       0.91    1.50    2.78  3147    1
+## r_manufacturer[subaru,Intercept]       -0.07    0.40    1.30  2218    1
+## r_manufacturer[toyota,Intercept]        0.36    0.72    1.46  1677    1
+## r_manufacturer[volkswagen,Intercept]    0.95    1.37    2.18  1881    1
+## lp__                                 -552.63 -549.80 -545.63   849    1
+## 
+## Samples were drawn using NUTS(diag_e) at Wed Feb  6 17:22:31 2019.
+## For each parameter, n_eff is a crude measure of effective sample size,
+## and Rhat is the potential scale reduction factor on split chains (at 
+## convergence, Rhat=1).</code></pre>
+<pre class="r"><code># 作図
+mpg %&gt;% 
+  cbind(fitted(result.hlm1)) %&gt;% 
+  select(cty, displ, manufacturer, y_hat = Estimate) %&gt;% 
+  ggplot(aes(displ, y_hat, color = manufacturer)) +
+  geom_smooth(method = &quot;lm&quot;, se = FALSE) +
+  geom_point(aes(y = cty)) + ylab(&quot;cty&quot;)</code></pre>
+<p><img src="brms_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+</div>
+<div id="section-13" class="section level2">
+<h2>ランダム係数モデル</h2>
+<pre class="r"><code>result.hlm2 &lt;- brm(cty~displ+(displ|manufacturer),data=mpg)</code></pre>
+<pre><code>## Compiling the C++ model</code></pre>
+<pre><code>## Start sampling</code></pre>
+<pre><code>## 
+## SAMPLING FOR MODEL &#39;53e4e9542f8ef009be512e8b26497a07&#39; NOW (CHAIN 1).
+## Chain 1: 
+## Chain 1: Gradient evaluation took 9.1e-05 seconds
+## Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 0.91 seconds.
+## Chain 1: Adjust your expectations accordingly!
+## Chain 1: 
+## Chain 1: 
+## Chain 1: Iteration:    1 / 2000 [  0%]  (Warmup)
+## Chain 1: Iteration:  200 / 2000 [ 10%]  (Warmup)
+## Chain 1: Iteration:  400 / 2000 [ 20%]  (Warmup)
+## Chain 1: Iteration:  600 / 2000 [ 30%]  (Warmup)
+## Chain 1: Iteration:  800 / 2000 [ 40%]  (Warmup)
+## Chain 1: Iteration: 1000 / 2000 [ 50%]  (Warmup)
+## Chain 1: Iteration: 1001 / 2000 [ 50%]  (Sampling)
+## Chain 1: Iteration: 1200 / 2000 [ 60%]  (Sampling)
+## Chain 1: Iteration: 1400 / 2000 [ 70%]  (Sampling)
+## Chain 1: Iteration: 1600 / 2000 [ 80%]  (Sampling)
+## Chain 1: Iteration: 1800 / 2000 [ 90%]  (Sampling)
+## Chain 1: Iteration: 2000 / 2000 [100%]  (Sampling)
+## Chain 1: 
+## Chain 1:  Elapsed Time: 1.48081 seconds (Warm-up)
+## Chain 1:                1.24871 seconds (Sampling)
+## Chain 1:                2.72952 seconds (Total)
+## Chain 1: 
+## 
+## SAMPLING FOR MODEL &#39;53e4e9542f8ef009be512e8b26497a07&#39; NOW (CHAIN 2).
+## Chain 2: 
+## Chain 2: Gradient evaluation took 2.9e-05 seconds
+## Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 0.29 seconds.
+## Chain 2: Adjust your expectations accordingly!
+## Chain 2: 
+## Chain 2: 
+## Chain 2: Iteration:    1 / 2000 [  0%]  (Warmup)
+## Chain 2: Iteration:  200 / 2000 [ 10%]  (Warmup)
+## Chain 2: Iteration:  400 / 2000 [ 20%]  (Warmup)
+## Chain 2: Iteration:  600 / 2000 [ 30%]  (Warmup)
+## Chain 2: Iteration:  800 / 2000 [ 40%]  (Warmup)
+## Chain 2: Iteration: 1000 / 2000 [ 50%]  (Warmup)
+## Chain 2: Iteration: 1001 / 2000 [ 50%]  (Sampling)
+## Chain 2: Iteration: 1200 / 2000 [ 60%]  (Sampling)
+## Chain 2: Iteration: 1400 / 2000 [ 70%]  (Sampling)
+## Chain 2: Iteration: 1600 / 2000 [ 80%]  (Sampling)
+## Chain 2: Iteration: 1800 / 2000 [ 90%]  (Sampling)
+## Chain 2: Iteration: 2000 / 2000 [100%]  (Sampling)
+## Chain 2: 
+## Chain 2:  Elapsed Time: 1.26957 seconds (Warm-up)
+## Chain 2:                1.2615 seconds (Sampling)
+## Chain 2:                2.53107 seconds (Total)
+## Chain 2: 
+## 
+## SAMPLING FOR MODEL &#39;53e4e9542f8ef009be512e8b26497a07&#39; NOW (CHAIN 3).
+## Chain 3: 
+## Chain 3: Gradient evaluation took 3.2e-05 seconds
+## Chain 3: 1000 transitions using 10 leapfrog steps per transition would take 0.32 seconds.
+## Chain 3: Adjust your expectations accordingly!
+## Chain 3: 
+## Chain 3: 
+## Chain 3: Iteration:    1 / 2000 [  0%]  (Warmup)
+## Chain 3: Iteration:  200 / 2000 [ 10%]  (Warmup)
+## Chain 3: Iteration:  400 / 2000 [ 20%]  (Warmup)
+## Chain 3: Iteration:  600 / 2000 [ 30%]  (Warmup)
+## Chain 3: Iteration:  800 / 2000 [ 40%]  (Warmup)
+## Chain 3: Iteration: 1000 / 2000 [ 50%]  (Warmup)
+## Chain 3: Iteration: 1001 / 2000 [ 50%]  (Sampling)
+## Chain 3: Iteration: 1200 / 2000 [ 60%]  (Sampling)
+## Chain 3: Iteration: 1400 / 2000 [ 70%]  (Sampling)
+## Chain 3: Iteration: 1600 / 2000 [ 80%]  (Sampling)
+## Chain 3: Iteration: 1800 / 2000 [ 90%]  (Sampling)
+## Chain 3: Iteration: 2000 / 2000 [100%]  (Sampling)
+## Chain 3: 
+## Chain 3:  Elapsed Time: 1.23837 seconds (Warm-up)
+## Chain 3:                1.20175 seconds (Sampling)
+## Chain 3:                2.44013 seconds (Total)
+## Chain 3: 
+## 
+## SAMPLING FOR MODEL &#39;53e4e9542f8ef009be512e8b26497a07&#39; NOW (CHAIN 4).
+## Chain 4: 
+## Chain 4: Gradient evaluation took 3.2e-05 seconds
+## Chain 4: 1000 transitions using 10 leapfrog steps per transition would take 0.32 seconds.
+## Chain 4: Adjust your expectations accordingly!
+## Chain 4: 
+## Chain 4: 
+## Chain 4: Iteration:    1 / 2000 [  0%]  (Warmup)
+## Chain 4: Iteration:  200 / 2000 [ 10%]  (Warmup)
+## Chain 4: Iteration:  400 / 2000 [ 20%]  (Warmup)
+## Chain 4: Iteration:  600 / 2000 [ 30%]  (Warmup)
+## Chain 4: Iteration:  800 / 2000 [ 40%]  (Warmup)
+## Chain 4: Iteration: 1000 / 2000 [ 50%]  (Warmup)
+## Chain 4: Iteration: 1001 / 2000 [ 50%]  (Sampling)
+## Chain 4: Iteration: 1200 / 2000 [ 60%]  (Sampling)
+## Chain 4: Iteration: 1400 / 2000 [ 70%]  (Sampling)
+## Chain 4: Iteration: 1600 / 2000 [ 80%]  (Sampling)
+## Chain 4: Iteration: 1800 / 2000 [ 90%]  (Sampling)
+## Chain 4: Iteration: 2000 / 2000 [100%]  (Sampling)
+## Chain 4: 
+## Chain 4:  Elapsed Time: 1.36725 seconds (Warm-up)
+## Chain 4:                1.49846 seconds (Sampling)
+## Chain 4:                2.86571 seconds (Total)
+## Chain 4:</code></pre>
+<pre><code>## Warning: There were 10 divergent transitions after warmup. Increasing adapt_delta above 0.8 may help. See
+## http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code></pre>
+<pre><code>## Warning: Examine the pairs() plot to diagnose sampling problems</code></pre>
+<p>結果は次の通り。</p>
+<pre class="r"><code># 結果（要約）
+result.hlm2</code></pre>
+<pre><code>## Warning: There were 10 divergent transitions after warmup. Increasing adapt_delta above 0.8 may help.
+## See http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code></pre>
+<pre><code>##  Family: gaussian 
+##   Links: mu = identity; sigma = identity 
+## Formula: cty ~ displ + (displ | manufacturer) 
+##    Data: mpg (Number of observations: 234) 
+## Samples: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
+##          total post-warmup samples = 4000
+## 
+## Group-Level Effects: 
+## ~manufacturer (Number of levels: 15) 
+##                      Estimate Est.Error l-95% CI u-95% CI Eff.Sample Rhat
+## sd(Intercept)            3.21      1.01     1.48     5.46        963 1.01
+## sd(displ)                0.88      0.32     0.32     1.61        696 1.01
+## cor(Intercept,displ)    -0.88      0.19    -0.99    -0.46        698 1.01
+## 
+## Population-Level Effects: 
+##           Estimate Est.Error l-95% CI u-95% CI Eff.Sample Rhat
+## Intercept    25.75      1.15    23.46    27.97       1646 1.00
+## displ        -2.67      0.32    -3.32    -2.05       1477 1.00
+## 
+## Family Specific Parameters: 
+##       Estimate Est.Error l-95% CI u-95% CI Eff.Sample Rhat
+## sigma     2.20      0.11     2.00     2.43       3141 1.00
+## 
+## Samples were drawn using sampling(NUTS). For each parameter, Eff.Sample 
+## is a crude measure of effective sample size, and Rhat is the potential 
+## scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
+<pre class="r"><code># 推定値
+result.hlm2$fit</code></pre>
+<pre><code>## Inference for Stan model: 53e4e9542f8ef009be512e8b26497a07.
+## 4 chains, each with iter=2000; warmup=1000; thin=1; 
+## post-warmup draws per chain=1000, total post-warmup draws=4000.
+## 
+##                                         mean se_mean   sd    2.5%     25%
+## b_Intercept                            25.75    0.03 1.15   23.46   24.99
+## b_displ                                -2.67    0.01 0.32   -3.32   -2.88
+## sd_manufacturer__Intercept              3.21    0.03 1.01    1.48    2.52
+## sd_manufacturer__displ                  0.88    0.01 0.32    0.32    0.66
+## cor_manufacturer__Intercept__displ     -0.88    0.01 0.19   -0.99   -0.97
+## sigma                                   2.20    0.00 0.11    2.00    2.13
+## r_manufacturer[audi,Intercept]         -2.73    0.04 1.75   -6.39   -3.88
+## r_manufacturer[chevrolet,Intercept]    -2.67    0.06 2.05   -6.66   -4.04
+## r_manufacturer[dodge,Intercept]        -2.19    0.04 1.84   -6.01   -3.34
+## r_manufacturer[ford,Intercept]         -0.44    0.04 2.24   -4.76   -1.89
+## r_manufacturer[honda,Intercept]         4.43    0.04 1.90    0.93    3.12
+## r_manufacturer[hyundai,Intercept]      -1.28    0.04 2.03   -5.63   -2.50
+## r_manufacturer[jeep,Intercept]         -1.53    0.04 2.35   -6.41   -3.02
+## r_manufacturer[land.rover,Intercept]    0.42    0.08 3.46   -6.36   -1.76
+## r_manufacturer[lincoln,Intercept]      -0.11    0.05 2.68   -5.49   -1.76
+## r_manufacturer[mercury,Intercept]      -0.55    0.05 2.92   -6.55   -2.29
+## r_manufacturer[nissan,Intercept]        1.54    0.04 2.06   -2.39    0.20
+## r_manufacturer[pontiac,Intercept]      -1.52    0.07 2.96   -7.72   -3.41
+## r_manufacturer[subaru,Intercept]        0.17    0.04 2.15   -4.00   -1.21
+## r_manufacturer[toyota,Intercept]        2.64    0.04 1.53   -0.25    1.57
+## r_manufacturer[volkswagen,Intercept]    3.49    0.06 1.85    0.28    2.18
+## r_manufacturer[audi,displ]              0.62    0.02 0.59   -0.46    0.20
+## r_manufacturer[chevrolet,displ]         1.03    0.01 0.47    0.13    0.71
+## r_manufacturer[dodge,displ]             0.32    0.01 0.45   -0.52    0.02
+## r_manufacturer[ford,displ]              0.17    0.01 0.53   -0.89   -0.17
+## r_manufacturer[honda,displ]            -0.97    0.02 0.77   -2.52   -1.47
+## r_manufacturer[hyundai,displ]           0.31    0.01 0.70   -1.01   -0.14
+## r_manufacturer[jeep,displ]              0.36    0.01 0.56   -0.69   -0.03
+## r_manufacturer[land.rover,displ]       -0.48    0.02 0.86   -2.31   -1.01
+## r_manufacturer[lincoln,displ]           0.03    0.01 0.61   -1.19   -0.37
+## r_manufacturer[mercury,displ]           0.04    0.01 0.73   -1.37   -0.42
+## r_manufacturer[nissan,displ]           -0.23    0.01 0.59   -1.42   -0.60
+## r_manufacturer[pontiac,displ]           0.69    0.02 0.78   -0.71    0.14
+## r_manufacturer[subaru,displ]           -0.04    0.01 0.75   -1.63   -0.47
+## r_manufacturer[toyota,displ]           -0.68    0.01 0.44   -1.58   -0.98
+## r_manufacturer[volkswagen,displ]       -1.02    0.02 0.67   -2.54   -1.45
+## lp__                                 -569.80    0.20 5.75 -581.82 -573.47
+##                                          50%     75%   97.5% n_eff Rhat
+## b_Intercept                            25.79   26.53   27.97  1646 1.00
+## b_displ                                -2.67   -2.45   -2.05  1477 1.00
+## sd_manufacturer__Intercept              3.11    3.81    5.46   963 1.01
+## sd_manufacturer__displ                  0.85    1.07    1.61   696 1.01
+## cor_manufacturer__Intercept__displ     -0.94   -0.87   -0.46   698 1.01
+## sigma                                   2.20    2.27    2.43  3141 1.00
+## r_manufacturer[audi,Intercept]         -2.63   -1.53    0.57  1618 1.00
+## r_manufacturer[chevrolet,Intercept]    -2.68   -1.29    1.42  1165 1.00
+## r_manufacturer[dodge,Intercept]        -2.13   -0.96    1.33  1794 1.00
+## r_manufacturer[ford,Intercept]         -0.45    0.95    4.17  2929 1.00
+## r_manufacturer[honda,Intercept]         4.39    5.66    8.44  1924 1.00
+## r_manufacturer[hyundai,Intercept]      -1.17    0.03    2.57  2367 1.00
+## r_manufacturer[jeep,Intercept]         -1.42    0.08    2.94  3056 1.00
+## r_manufacturer[land.rover,Intercept]    0.32    2.60    7.37  2075 1.00
+## r_manufacturer[lincoln,Intercept]      -0.06    1.53    5.18  3548 1.00
+## r_manufacturer[mercury,Intercept]      -0.49    1.22    5.07  3185 1.00
+## r_manufacturer[nissan,Intercept]        1.42    2.85    5.70  3216 1.00
+## r_manufacturer[pontiac,Intercept]      -1.35    0.46    3.91  1858 1.00
+## r_manufacturer[subaru,Intercept]        0.10    1.47    4.75  2749 1.00
+## r_manufacturer[toyota,Intercept]        2.61    3.66    5.76  1671 1.00
+## r_manufacturer[volkswagen,Intercept]    3.39    4.69    7.53   955 1.00
+## r_manufacturer[audi,displ]              0.58    0.98    1.88  1357 1.00
+## r_manufacturer[chevrolet,displ]         1.02    1.35    1.97  1066 1.00
+## r_manufacturer[dodge,displ]             0.31    0.61    1.27  1387 1.00
+## r_manufacturer[ford,displ]              0.16    0.52    1.23  2469 1.00
+## r_manufacturer[honda,displ]            -0.96   -0.47    0.53  1450 1.00
+## r_manufacturer[hyundai,displ]           0.25    0.73    1.85  2397 1.00
+## r_manufacturer[jeep,displ]              0.33    0.72    1.52  2763 1.00
+## r_manufacturer[land.rover,displ]       -0.42    0.07    1.15  2507 1.00
+## r_manufacturer[lincoln,displ]           0.02    0.41    1.27  3332 1.00
+## r_manufacturer[mercury,displ]           0.02    0.49    1.52  2912 1.00
+## r_manufacturer[nissan,displ]           -0.20    0.14    0.93  3266 1.00
+## r_manufacturer[pontiac,displ]           0.62    1.18    2.37  1856 1.00
+## r_manufacturer[subaru,displ]           -0.01    0.41    1.38  2973 1.00
+## r_manufacturer[toyota,displ]           -0.67   -0.38    0.16  2116 1.00
+## r_manufacturer[volkswagen,displ]       -0.97   -0.55    0.11   876 1.00
+## lp__                                 -569.47 -565.82 -559.56   813 1.00
+## 
+## Samples were drawn using NUTS(diag_e) at Wed Feb  6 17:23:16 2019.
+## For each parameter, n_eff is a crude measure of effective sample size,
+## and Rhat is the potential scale reduction factor on split chains (at 
+## convergence, Rhat=1).</code></pre>
+<pre class="r"><code># 作図
+mpg %&gt;% 
+  cbind(fitted(result.hlm2)) %&gt;% 
+  select(cty, displ, manufacturer, y_hat = Estimate) %&gt;% 
+  ggplot(aes(displ, y_hat, color = manufacturer)) +
+  geom_smooth(method = &quot;lm&quot;, se = FALSE) +
+  geom_point(aes(y = cty)) + ylab(&quot;cty&quot;)</code></pre>
+<p><img src="brms_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

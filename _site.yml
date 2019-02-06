@@ -2,10 +2,12 @@ name: "Bayesian Modeling Tutorial at JAMS"
 navbar: 
   title: "Bayesian Modeling Tutorial at JAMS"
   left:
-    - text: "ホーム"
+    - text: "事前準備"
       href: index.html
-    - text: "課題"
-      href: shumi.html
+    - text: "brmsを使った実践例"
+      href: brms.html
+    - text: "stanを使った実践例"
+      href: stan.html
 output:
   html_document:
     theme: cosmo
