@@ -11,7 +11,7 @@
 
 
 
-<title>事前準備</title>
+<title>JAMS201903　Tutorial</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -398,19 +398,13 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">事前準備</h1>
+<h1 class="title toc-ignore">JAMS201903　Tutorial</h1>
 
 </div>
 
 
-<p>受講される方は事前に以下のコードを実行し，必要なパッケージを入手しておいてください。</p>
-<pre class="r"><code>install.packages(&#39;tidyverse&#39;)
-install.packages(&#39;rstan&#39;)
-install.packages(&#39;bayesplot&#39;)
-install.packages(&#39;brms&#39;)</code></pre>
-<p>Rのコードについては，本サイトからコピー＆ペーストで使ってもらって結構ですが，Rの基本的な使い方，RStudioの基本的な使い方，ggplotによる描画の方法などについて，「<a href="https://amzn.to/2GmX9Ot">RユーザのためのRStudio入門</a>」 を参考に予習しておいていただけると，理解が進むと思います。</p>
-<div id="jams201903-tutorial-contents" class="section level1">
-<h1>JAMS201903　Tutorial contents</h1>
+<div id="contents" class="section level1">
+<h1>予定されているcontents</h1>
 <div id="section" class="section level3">
 <h3>ベイズの定理</h3>
 <ol style="list-style-type: decimal">
@@ -434,6 +428,131 @@ install.packages(&#39;brms&#39;)</code></pre>
 <li>Stanコードを書いてみる</li>
 <li>その後の学習に向けて(futher readings)</li>
 </ol>
+</div>
+</div>
+<div id="section-1" class="section level1">
+<h1>事前準備のご案内</h1>
+<p>受講される方は事前に環境の準備をしていただき，当日実際に手元で計算を進めていただくと，より理解が深まるかと思います。</p>
+<div id="section-2" class="section level2">
+<h2>準備・確認していただきたいもの</h2>
+<ul>
+<li>PC環境の確認</li>
+<li>Rの最新版を準備する</li>
+<li>RStudioの最新版を準備する</li>
+<li>関連するパッケージを準備する</li>
+<li>問題なく動くかどうかを確認する</li>
+</ul>
+</div>
+<div id="pc" class="section level2">
+<h2>PC環境の確認</h2>
+<p>Windowsユーザの方は以下の点にご注意ください</p>
+<ul>
+<li>ユーザー名に2バイト文字(全角文字)が含まれているとRStudioの描画やパッケージのインストールなどでエラーが生じることがあります。</li>
+<li>2バイト文字でアカウントを作っている場合→半角英数文字の管理者権限を持ったアカウントを新たに作ってください</li>
+<li>ウイルス対策ソフトが常駐していると，rstanのコンパイルを阻むことがあります。ウイルス対策ソフトを停止した上で，パッケージのインストールやコードの実行を行っていただくことをお勧めします。</li>
+</ul>
+</div>
+<div id="r" class="section level2">
+<h2>Rの最新版を準備する</h2>
+<p>Rのサイトは<a href="https://cloud.r-project.org/">こちら</a>です。Rの最新バージョンは3.5.2ですので，ご準備ください。</p>
+<div id="windows" class="section level3">
+<h3>Windowsユーザの場合</h3>
+<ul>
+<li>Download and Install Rより，base(基本・R本体)とRtools(コンパイラなど)をダウンロード，インストールしてください。</li>
+<li>インストールする場所やオプションについて不明な場合は，全てインストーラのデフォルト設定で構いません。「次へ」のボタンを繰り返しクリックし，インストールしてください。</li>
+<li>Rtoolsをインストールするときも，不明な場合はデフォルトの設定で構いませんので，「次へ」のボタンを繰り返しクリックしてください。</li>
+<li>デフォルトでPATHにRtoolsへのパスが追記されます。選択するときに除外しないように注意してください。</li>
+</ul>
+</div>
+<div id="mac" class="section level3">
+<h3>Macユーザの場合</h3>
+<ul>
+<li>Download R for (Mac) OS Xより，R-3.5.2.pkgをダウンロードし，実行してください。</li>
+</ul>
+</div>
+</div>
+<div id="rstudio" class="section level2">
+<h2>RStudioの最新版を準備する</h2>
+<p>RStudioのサイトは<a href="https://www.rstudio.com/">こちら</a>です。RStudioの最新バージョンは1.1.463ですので，ご準備ください。OSに応じて最新版のインストーラをダウンロードし，実行してください。</p>
+</div>
+<div id="section-3" class="section level2">
+<h2>関連するパッケージを準備する</h2>
+<p>RおよびRStudioのインストールが終われば，RStudioを起動し，次のコードを実行してください。</p>
+<p>関連パッケージも含め，多くのパッケージが導入されますのでしばらくお待ちください。</p>
+<pre class="r"><code>install.packages(&#39;tidyverse&#39;)
+install.packages(&#39;rstan&#39;)
+install.packages(&#39;bayesplot&#39;)
+install.packages(&#39;brms&#39;)</code></pre>
+<p>すでにRやRStudio，パッケージの導入をしたことがある人も，次のコードでパッケージを最新版にアップデートすることができますので，ご確認ください。</p>
+<pre class="r"><code>update.packages(ask=F)</code></pre>
+</div>
+<div id="section-4" class="section level2">
+<h2>問題なく動くか確認する</h2>
+<p>環境の準備ができれば，次のコードをコピー＆ペーストで実行してください。</p>
+<pre class="r"><code>library(rstan)
+rstan_options(auto_write = TRUE)
+options(mc.cores = parallel::detectCores())
+stancode &lt;- &quot;
+data {
+int&lt;lower=0&gt; J; // number of schools 
+real y[J]; // estimated treatment effects
+real&lt;lower=0&gt; sigma[J]; // s.e. of effect estimates 
+}
+parameters {
+real mu; 
+real&lt;lower=0&gt; tau;
+real eta[J];
+}
+transformed parameters {
+real theta[J];
+for (j in 1:J)
+theta[j] = mu + tau * eta[j];
+}
+model {
+target += normal_lpdf(eta | 0, 1);
+target += normal_lpdf(y | theta, sigma);
+}
+&quot;
+schools_dat &lt;- list(J = 8, y = c(28, 8, -3, 7, -1, 1, 18, 12), 
+                    sigma = c(15, 10, 16, 11, 9, 11, 10, 18))
+model.ex &lt;- stan_model(model_code = stancode, model_name = &quot;school&quot;)
+fit.samp &lt;- sampling(model.ex, data = schools_dat, iter = 1000, 
+                     chains = 4)</code></pre>
+<pre><code>## Warning: There were 1 divergent transitions after warmup. Increasing adapt_delta above 0.8 may help. See
+## http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code></pre>
+<pre><code>## Warning: Examine the pairs() plot to diagnose sampling problems</code></pre>
+<pre class="r"><code>fit.samp</code></pre>
+<pre><code>## Inference for Stan model: school.
+## 4 chains, each with iter=1000; warmup=500; thin=1; 
+## post-warmup draws per chain=500, total post-warmup draws=2000.
+## 
+##            mean se_mean   sd   2.5%    25%    50%    75%  97.5% n_eff Rhat
+## mu         8.06    0.16 5.18  -2.00   4.62   7.81  11.38  18.93  1024    1
+## tau        6.63    0.18 5.30   0.26   2.63   5.44   9.39  19.98   911    1
+## eta[1]     0.39    0.02 0.94  -1.46  -0.23   0.43   1.03   2.22  2073    1
+## eta[2]     0.00    0.02 0.91  -1.78  -0.60  -0.01   0.58   1.88  2060    1
+## eta[3]    -0.22    0.02 0.95  -2.08  -0.89  -0.25   0.46   1.61  2080    1
+## eta[4]    -0.05    0.02 0.87  -1.83  -0.59  -0.04   0.49   1.66  1931    1
+## eta[5]    -0.35    0.02 0.85  -1.98  -0.92  -0.35   0.18   1.44  1790    1
+## eta[6]    -0.25    0.02 0.88  -2.07  -0.81  -0.26   0.33   1.49  1481    1
+## eta[7]     0.36    0.02 0.86  -1.39  -0.16   0.39   0.92   2.01  1648    1
+## eta[8]     0.04    0.02 0.96  -1.79  -0.60   0.04   0.68   1.88  2085    1
+## theta[1]  11.56    0.22 8.45  -2.22   5.94  10.39  15.85  31.78  1489    1
+## theta[2]   7.93    0.14 6.44  -4.96   3.89   7.83  11.94  20.70  2141    1
+## theta[3]   6.18    0.19 7.86 -11.58   1.96   6.49  10.87  21.06  1687    1
+## theta[4]   7.61    0.14 6.48  -6.16   3.57   7.60  11.71  20.51  2115    1
+## theta[5]   5.17    0.16 6.42  -8.76   1.24   5.43   9.37  16.49  1581    1
+## theta[6]   5.98    0.15 6.66  -8.67   2.25   6.35  10.43  17.77  1948    1
+## theta[7]  10.94    0.17 6.47  -0.21   6.51  10.41  14.91  25.29  1532    1
+## theta[8]   8.52    0.19 8.10  -7.17   3.85   8.09  13.19  26.07  1917    1
+## lp__     -39.49    0.11 2.65 -45.46 -41.09 -39.18 -37.64 -35.11   601    1
+## 
+## Samples were drawn using NUTS(diag_e) at Thu Feb  7 10:00:56 2019.
+## For each parameter, n_eff is a crude measure of effective sample size,
+## and Rhat is the potential scale reduction factor on split chains (at 
+## convergence, Rhat=1).</code></pre>
+<p>なにやら上記のような文字列が出ていたら準備完了です。</p>
+<p>Rのコードについては，本サイトからコピー＆ペーストで使ってもらって結構ですが，Rの基本的な使い方，RStudioの基本的な使い方，ggplotによる描画の方法などについて，「<a href="https://amzn.to/2GmX9Ot">RユーザのためのRStudio入門</a>」 を参考に予習しておいていただけると，理解が進むと思います。</p>
 </div>
 </div>
 
