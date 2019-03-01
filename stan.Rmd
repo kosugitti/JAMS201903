@@ -15,17 +15,16 @@ X <- c(-27.020,3.570,8.191,9.808,9.603,9.945,10.056)
 sc7 <- list(N=NROW(X),X=X)
 ```
 
+### ソースコード
+```{r, echo=FALSE, eval=TRUE}
+paste(readLines("SevenScientist.stan"), collapse = "\n") %>% cat()
+```
+
 ### モデルをコンパイル
 ```{r,results="hide"}
 ## モデルコンパイル
 model <- stan_model("SevenScientist.stan")
 ```
-
-### コンパイルするためのソースコード
-```{r, echo=FALSE, eval=TRUE}
-paste(readLines("SevenScientist.stan"), collapse = "\n") %>% cat()
-```
-
 
 ### 推定
 
@@ -40,3 +39,46 @@ fit
 plot(fit,pars=c("sig[1]","sig[2]","sig[3]","sig[4]",
                 "sig[5]","sig[6]","sig[7]"),show_density=T)
 ```
+
+
+## 喫煙率のみつもり
+
+### データを作ります
+```{r smoker}
+set.seed(12345)
+# 100人に調査したとします
+N <- 100
+# 100人のコインの結果
+M <- rbinom(N,1,0.5)
+
+# 調査結果を入力するベクトルを用意
+Y <- c()
+# 真の喫煙率を仮に20％とします
+Theta <- 0.2
+# コインが裏なら常にYes(1)，表なら確率Thetaで回答するとします
+for(i in 1:N){
+  if(M[i]!=1){Y[i]<-1}else{Y[i]<-rbinom(1,1,Theta)}
+}
+# 得られた調査結果
+Y
+```
+
+### ソースコード
+```{r, echo=FALSE, eval=TRUE}
+paste(readLines("smoker.stan"), collapse = "\n") %>% cat()
+```
+
+### モデルをコンパイル
+```{r,results="hide"}
+## モデルコンパイル
+model2 <- stan_model("smoker.stan")
+```
+
+### 推定
+
+```{r}
+dataset <- list(N=N,Y=Y)
+fit <- sampling(model2,dataset,iter=3000,warmup=1000,chains=4,thin=1)
+fit
+```
+
