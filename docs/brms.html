@@ -415,12 +415,12 @@ div.tocify {
 ## to the package is available through vignette(&#39;brms_overview&#39;).
 ## Run theme_set(theme_default()) to use the default bayesplot theme.</code></pre>
 <pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## ─ Attaching packages ─────────────────────────────── tidyverse 1.2.1 ─</code></pre>
-<pre><code>## ✔ tibble  2.0.1       ✔ purrr   0.3.0  
-## ✔ tidyr   0.8.2       ✔ dplyr   0.8.0.1
+<pre><code>## ─ Attaching packages ────────────────────────────────── tidyverse 1.2.1 ─</code></pre>
+<pre><code>## ✔ tibble  2.0.1       ✔ purrr   0.3.1  
+## ✔ tidyr   0.8.3       ✔ dplyr   0.8.0.1
 ## ✔ readr   1.3.1       ✔ stringr 1.4.0  
 ## ✔ tibble  2.0.1       ✔ forcats 0.4.0</code></pre>
-<pre><code>## ─ Conflicts ───────────────────────────────── tidyverse_conflicts() ─
+<pre><code>## ─ Conflicts ──────────────────────────────────── tidyverse_conflicts() ─
 ## ✖ dplyr::filter() masks stats::filter()
 ## ✖ dplyr::lag()    masks stats::lag()</code></pre>
 </div>
@@ -572,8 +572,8 @@ plot(g)</code></pre>
 <pre><code>## 
 ## SAMPLING FOR MODEL &#39;7e5af2e7cd64c4d926e4c21aec634789&#39; NOW (CHAIN 1).
 ## Chain 1: 
-## Chain 1: Gradient evaluation took 5.1e-05 seconds
-## Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 0.51 seconds.
+## Chain 1: Gradient evaluation took 4.2e-05 seconds
+## Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 0.42 seconds.
 ## Chain 1: Adjust your expectations accordingly!
 ## Chain 1: 
 ## Chain 1: 
@@ -590,9 +590,9 @@ plot(g)</code></pre>
 ## Chain 1: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 ## Chain 1: Iteration: 2000 / 2000 [100%]  (Sampling)
 ## Chain 1: 
-## Chain 1:  Elapsed Time: 0.059267 seconds (Warm-up)
-## Chain 1:                0.089747 seconds (Sampling)
-## Chain 1:                0.149014 seconds (Total)
+## Chain 1:  Elapsed Time: 0.057783 seconds (Warm-up)
+## Chain 1:                0.047749 seconds (Sampling)
+## Chain 1:                0.105532 seconds (Total)
 ## Chain 1: 
 ## 
 ## SAMPLING FOR MODEL &#39;7e5af2e7cd64c4d926e4c21aec634789&#39; NOW (CHAIN 2).
@@ -615,9 +615,9 @@ plot(g)</code></pre>
 ## Chain 2: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 ## Chain 2: Iteration: 2000 / 2000 [100%]  (Sampling)
 ## Chain 2: 
-## Chain 2:  Elapsed Time: 0.060366 seconds (Warm-up)
-## Chain 2:                0.060563 seconds (Sampling)
-## Chain 2:                0.120929 seconds (Total)
+## Chain 2:  Elapsed Time: 0.057174 seconds (Warm-up)
+## Chain 2:                0.092456 seconds (Sampling)
+## Chain 2:                0.14963 seconds (Total)
 ## Chain 2: 
 ## 
 ## SAMPLING FOR MODEL &#39;7e5af2e7cd64c4d926e4c21aec634789&#39; NOW (CHAIN 3).
@@ -640,9 +640,9 @@ plot(g)</code></pre>
 ## Chain 3: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 ## Chain 3: Iteration: 2000 / 2000 [100%]  (Sampling)
 ## Chain 3: 
-## Chain 3:  Elapsed Time: 0.057019 seconds (Warm-up)
-## Chain 3:                0.08655 seconds (Sampling)
-## Chain 3:                0.143569 seconds (Total)
+## Chain 3:  Elapsed Time: 0.056806 seconds (Warm-up)
+## Chain 3:                0.090612 seconds (Sampling)
+## Chain 3:                0.147418 seconds (Total)
 ## Chain 3: 
 ## 
 ## SAMPLING FOR MODEL &#39;7e5af2e7cd64c4d926e4c21aec634789&#39; NOW (CHAIN 4).
@@ -665,9 +665,9 @@ plot(g)</code></pre>
 ## Chain 4: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 ## Chain 4: Iteration: 2000 / 2000 [100%]  (Sampling)
 ## Chain 4: 
-## Chain 4:  Elapsed Time: 0.057593 seconds (Warm-up)
-## Chain 4:                0.067168 seconds (Sampling)
-## Chain 4:                0.124761 seconds (Total)
+## Chain 4:  Elapsed Time: 0.058578 seconds (Warm-up)
+## Chain 4:                0.051714 seconds (Sampling)
+## Chain 4:                0.110292 seconds (Total)
 ## Chain 4:</code></pre>
 <pre class="r"><code>result.brm</code></pre>
 <pre><code>##  Family: gaussian 
@@ -679,12 +679,12 @@ plot(g)</code></pre>
 ## 
 ## Population-Level Effects: 
 ##           Estimate Est.Error l-95% CI u-95% CI Eff.Sample Rhat
-## Intercept    26.00      0.48    25.06    26.94       4112 1.00
-## displ        -2.63      0.13    -2.89    -2.37       3993 1.00
+## Intercept    25.99      0.48    25.07    26.93       4391 1.00
+## displ        -2.63      0.13    -2.89    -2.38       4268 1.00
 ## 
 ## Family Specific Parameters: 
 ##       Estimate Est.Error l-95% CI u-95% CI Eff.Sample Rhat
-## sigma     2.58      0.12     2.35     2.83       3765 1.00
+## sigma     2.58      0.12     2.36     2.82       4423 1.00
 ## 
 ## Samples were drawn using sampling(NUTS). For each parameter, Eff.Sample 
 ## is a crude measure of effective sample size, and Rhat is the potential 
@@ -713,64 +713,64 @@ rstan::extract(result.brm$fit) %&gt;% data.frame %&gt;% head(10)</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="right">26.36722</td>
-<td align="right">-2.752188</td>
-<td align="right">2.638981</td>
-<td align="right">-557.3391</td>
+<td align="right">25.11060</td>
+<td align="right">-2.370101</td>
+<td align="right">2.674755</td>
+<td align="right">-558.9614</td>
 </tr>
 <tr class="even">
-<td align="right">24.74516</td>
-<td align="right">-2.371538</td>
-<td align="right">2.571377</td>
-<td align="right">-560.7967</td>
+<td align="right">26.04493</td>
+<td align="right">-2.606203</td>
+<td align="right">2.549161</td>
+<td align="right">-557.0499</td>
 </tr>
 <tr class="odd">
-<td align="right">25.78244</td>
-<td align="right">-2.552919</td>
-<td align="right">2.606055</td>
-<td align="right">-556.9888</td>
+<td align="right">26.20681</td>
+<td align="right">-2.735127</td>
+<td align="right">2.681749</td>
+<td align="right">-557.8145</td>
 </tr>
 <tr class="even">
-<td align="right">25.82456</td>
-<td align="right">-2.593370</td>
-<td align="right">2.664000</td>
-<td align="right">-557.0972</td>
+<td align="right">26.39549</td>
+<td align="right">-2.743991</td>
+<td align="right">2.490659</td>
+<td align="right">-557.2777</td>
 </tr>
 <tr class="odd">
-<td align="right">26.76528</td>
-<td align="right">-2.841169</td>
-<td align="right">2.595154</td>
-<td align="right">-558.0376</td>
+<td align="right">25.93521</td>
+<td align="right">-2.619741</td>
+<td align="right">2.653101</td>
+<td align="right">-556.9761</td>
 </tr>
 <tr class="even">
-<td align="right">26.28992</td>
-<td align="right">-2.723596</td>
-<td align="right">2.570466</td>
-<td align="right">-556.9544</td>
+<td align="right">26.67031</td>
+<td align="right">-2.762573</td>
+<td align="right">2.596664</td>
+<td align="right">-558.0733</td>
 </tr>
 <tr class="odd">
-<td align="right">26.26239</td>
-<td align="right">-2.588223</td>
-<td align="right">2.800122</td>
-<td align="right">-561.0783</td>
+<td align="right">25.65094</td>
+<td align="right">-2.549842</td>
+<td align="right">2.743078</td>
+<td align="right">-557.9566</td>
 </tr>
 <tr class="even">
-<td align="right">25.99399</td>
-<td align="right">-2.642913</td>
-<td align="right">2.537078</td>
-<td align="right">-556.7416</td>
+<td align="right">25.35317</td>
+<td align="right">-2.505538</td>
+<td align="right">2.422382</td>
+<td align="right">-558.7917</td>
 </tr>
 <tr class="odd">
-<td align="right">25.60591</td>
-<td align="right">-2.614240</td>
-<td align="right">2.630171</td>
-<td align="right">-558.6873</td>
+<td align="right">26.29992</td>
+<td align="right">-2.739840</td>
+<td align="right">2.645074</td>
+<td align="right">-557.3383</td>
 </tr>
 <tr class="even">
-<td align="right">25.87900</td>
-<td align="right">-2.628822</td>
-<td align="right">2.559532</td>
-<td align="right">-556.8892</td>
+<td align="right">26.70885</td>
+<td align="right">-2.785200</td>
+<td align="right">2.497674</td>
+<td align="right">-558.1914</td>
 </tr>
 </tbody>
 </table>
@@ -791,16 +791,16 @@ rstan::extract(result.brm$fit) %&gt;% data.frame %&gt;% head(10)</code></pre>
 <h2>事後予測分布</h2>
 <pre class="r"><code>predict(result.brm) %&gt;% head(10)</code></pre>
 <pre><code>##       Estimate Est.Error     Q2.5    Q97.5
-##  [1,] 21.29312  2.593028 16.36681 26.38938
-##  [2,] 21.29794  2.599377 16.13745 26.44921
-##  [3,] 20.67186  2.582651 15.55602 25.79454
-##  [4,] 20.78511  2.608236 15.72148 25.80173
-##  [5,] 18.69809  2.614581 13.66677 23.94852
-##  [6,] 18.64398  2.619263 13.50991 23.72097
-##  [7,] 17.81250  2.612322 12.88889 22.94635
-##  [8,] 21.22561  2.572351 16.19734 26.19180
-##  [9,] 21.26269  2.576166 16.28129 26.24611
-## [10,] 20.72178  2.630066 15.63516 25.90275</code></pre>
+##  [1,] 21.31048  2.599970 16.09270 26.31486
+##  [2,] 21.31205  2.573370 16.27210 26.22410
+##  [3,] 20.68270  2.646399 15.46692 26.10699
+##  [4,] 20.80638  2.563281 15.68658 25.83451
+##  [5,] 18.63636  2.603001 13.50303 23.74901
+##  [6,] 18.66532  2.569043 13.56937 23.55285
+##  [7,] 17.93478  2.642655 12.84637 23.23644
+##  [8,] 21.21270  2.583297 16.13018 26.31577
+##  [9,] 21.25033  2.622059 16.03771 26.29970
+## [10,] 20.74153  2.587537 15.60967 25.75037</code></pre>
 </div>
 <div id="stan" class="section level2">
 <h2>分析に使ったstanコードも出力できる</h2>
@@ -847,11 +847,171 @@ rstan::extract(result.brm$fit) %&gt;% data.frame %&gt;% head(10)</code></pre>
 ##   real b_Intercept = temp_Intercept - dot_product(means_X, b); 
 ## }</code></pre>
 </div>
+<div id="section-11" class="section level2">
+<h2>一般線形モデル</h2>
+<p>平均値の差の検定なども，brmsパッケージを使った方が簡単・確実・わかりやすい。</p>
+<pre class="r"><code>mpg$manufacturer &lt;- as.factor(mpg$manufacturer)
+result.anova &lt;- brm(cty~manufacturer,data=mpg)</code></pre>
+<pre><code>## Compiling the C++ model</code></pre>
+<pre><code>## recompiling to avoid crashing R session</code></pre>
+<pre><code>## Start sampling</code></pre>
+<pre><code>## 
+## SAMPLING FOR MODEL &#39;7e5af2e7cd64c4d926e4c21aec634789&#39; NOW (CHAIN 1).
+## Chain 1: 
+## Chain 1: Gradient evaluation took 4.1e-05 seconds
+## Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 0.41 seconds.
+## Chain 1: Adjust your expectations accordingly!
+## Chain 1: 
+## Chain 1: 
+## Chain 1: Iteration:    1 / 2000 [  0%]  (Warmup)
+## Chain 1: Iteration:  200 / 2000 [ 10%]  (Warmup)
+## Chain 1: Iteration:  400 / 2000 [ 20%]  (Warmup)
+## Chain 1: Iteration:  600 / 2000 [ 30%]  (Warmup)
+## Chain 1: Iteration:  800 / 2000 [ 40%]  (Warmup)
+## Chain 1: Iteration: 1000 / 2000 [ 50%]  (Warmup)
+## Chain 1: Iteration: 1001 / 2000 [ 50%]  (Sampling)
+## Chain 1: Iteration: 1200 / 2000 [ 60%]  (Sampling)
+## Chain 1: Iteration: 1400 / 2000 [ 70%]  (Sampling)
+## Chain 1: Iteration: 1600 / 2000 [ 80%]  (Sampling)
+## Chain 1: Iteration: 1800 / 2000 [ 90%]  (Sampling)
+## Chain 1: Iteration: 2000 / 2000 [100%]  (Sampling)
+## Chain 1: 
+## Chain 1:  Elapsed Time: 0.334155 seconds (Warm-up)
+## Chain 1:                0.153942 seconds (Sampling)
+## Chain 1:                0.488097 seconds (Total)
+## Chain 1: 
+## 
+## SAMPLING FOR MODEL &#39;7e5af2e7cd64c4d926e4c21aec634789&#39; NOW (CHAIN 2).
+## Chain 2: 
+## Chain 2: Gradient evaluation took 2.1e-05 seconds
+## Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 0.21 seconds.
+## Chain 2: Adjust your expectations accordingly!
+## Chain 2: 
+## Chain 2: 
+## Chain 2: Iteration:    1 / 2000 [  0%]  (Warmup)
+## Chain 2: Iteration:  200 / 2000 [ 10%]  (Warmup)
+## Chain 2: Iteration:  400 / 2000 [ 20%]  (Warmup)
+## Chain 2: Iteration:  600 / 2000 [ 30%]  (Warmup)
+## Chain 2: Iteration:  800 / 2000 [ 40%]  (Warmup)
+## Chain 2: Iteration: 1000 / 2000 [ 50%]  (Warmup)
+## Chain 2: Iteration: 1001 / 2000 [ 50%]  (Sampling)
+## Chain 2: Iteration: 1200 / 2000 [ 60%]  (Sampling)
+## Chain 2: Iteration: 1400 / 2000 [ 70%]  (Sampling)
+## Chain 2: Iteration: 1600 / 2000 [ 80%]  (Sampling)
+## Chain 2: Iteration: 1800 / 2000 [ 90%]  (Sampling)
+## Chain 2: Iteration: 2000 / 2000 [100%]  (Sampling)
+## Chain 2: 
+## Chain 2:  Elapsed Time: 0.309518 seconds (Warm-up)
+## Chain 2:                0.154132 seconds (Sampling)
+## Chain 2:                0.46365 seconds (Total)
+## Chain 2: 
+## 
+## SAMPLING FOR MODEL &#39;7e5af2e7cd64c4d926e4c21aec634789&#39; NOW (CHAIN 3).
+## Chain 3: 
+## Chain 3: Gradient evaluation took 2.4e-05 seconds
+## Chain 3: 1000 transitions using 10 leapfrog steps per transition would take 0.24 seconds.
+## Chain 3: Adjust your expectations accordingly!
+## Chain 3: 
+## Chain 3: 
+## Chain 3: Iteration:    1 / 2000 [  0%]  (Warmup)
+## Chain 3: Iteration:  200 / 2000 [ 10%]  (Warmup)
+## Chain 3: Iteration:  400 / 2000 [ 20%]  (Warmup)
+## Chain 3: Iteration:  600 / 2000 [ 30%]  (Warmup)
+## Chain 3: Iteration:  800 / 2000 [ 40%]  (Warmup)
+## Chain 3: Iteration: 1000 / 2000 [ 50%]  (Warmup)
+## Chain 3: Iteration: 1001 / 2000 [ 50%]  (Sampling)
+## Chain 3: Iteration: 1200 / 2000 [ 60%]  (Sampling)
+## Chain 3: Iteration: 1400 / 2000 [ 70%]  (Sampling)
+## Chain 3: Iteration: 1600 / 2000 [ 80%]  (Sampling)
+## Chain 3: Iteration: 1800 / 2000 [ 90%]  (Sampling)
+## Chain 3: Iteration: 2000 / 2000 [100%]  (Sampling)
+## Chain 3: 
+## Chain 3:  Elapsed Time: 0.352115 seconds (Warm-up)
+## Chain 3:                0.151807 seconds (Sampling)
+## Chain 3:                0.503922 seconds (Total)
+## Chain 3: 
+## 
+## SAMPLING FOR MODEL &#39;7e5af2e7cd64c4d926e4c21aec634789&#39; NOW (CHAIN 4).
+## Chain 4: 
+## Chain 4: Gradient evaluation took 2.3e-05 seconds
+## Chain 4: 1000 transitions using 10 leapfrog steps per transition would take 0.23 seconds.
+## Chain 4: Adjust your expectations accordingly!
+## Chain 4: 
+## Chain 4: 
+## Chain 4: Iteration:    1 / 2000 [  0%]  (Warmup)
+## Chain 4: Iteration:  200 / 2000 [ 10%]  (Warmup)
+## Chain 4: Iteration:  400 / 2000 [ 20%]  (Warmup)
+## Chain 4: Iteration:  600 / 2000 [ 30%]  (Warmup)
+## Chain 4: Iteration:  800 / 2000 [ 40%]  (Warmup)
+## Chain 4: Iteration: 1000 / 2000 [ 50%]  (Warmup)
+## Chain 4: Iteration: 1001 / 2000 [ 50%]  (Sampling)
+## Chain 4: Iteration: 1200 / 2000 [ 60%]  (Sampling)
+## Chain 4: Iteration: 1400 / 2000 [ 70%]  (Sampling)
+## Chain 4: Iteration: 1600 / 2000 [ 80%]  (Sampling)
+## Chain 4: Iteration: 1800 / 2000 [ 90%]  (Sampling)
+## Chain 4: Iteration: 2000 / 2000 [100%]  (Sampling)
+## Chain 4: 
+## Chain 4:  Elapsed Time: 0.348624 seconds (Warm-up)
+## Chain 4:                0.150718 seconds (Sampling)
+## Chain 4:                0.499342 seconds (Total)
+## Chain 4:</code></pre>
+<pre class="r"><code>result.anova</code></pre>
+<pre><code>##  Family: gaussian 
+##   Links: mu = identity; sigma = identity 
+## Formula: cty ~ manufacturer 
+##    Data: mpg (Number of observations: 234) 
+## Samples: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
+##          total post-warmup samples = 4000
+## 
+## Population-Level Effects: 
+##                        Estimate Est.Error l-95% CI u-95% CI Eff.Sample
+## Intercept                 17.58      0.69    16.23    18.94        799
+## manufacturerchevrolet     -2.58      0.95    -4.46    -0.72       1234
+## manufacturerdodge         -4.45      0.85    -6.11    -2.79       1061
+## manufacturerford          -3.58      0.90    -5.38    -1.78       1218
+## manufacturerhonda          6.85      1.18     4.47     9.18       1593
+## manufacturerhyundai        1.06      1.06    -1.07     3.07       1476
+## manufacturerjeep          -4.06      1.24    -6.47    -1.63       1696
+## manufacturerlandrover     -6.09      1.63    -9.41    -2.94       2649
+## manufacturerlincoln       -6.22      1.83    -9.69    -2.52       3131
+## manufacturermercury       -4.31      1.62    -7.39    -1.13       2554
+## manufacturernissan         0.48      1.04    -1.63     2.47       1373
+## manufacturerpontiac       -0.57      1.45    -3.41     2.27       2153
+## manufacturersubaru         1.70      1.07    -0.34     3.82       1494
+## manufacturertoyota         0.96      0.87    -0.73     2.66       1098
+## manufacturervolkswagen     3.35      0.91     1.57     5.15       1090
+##                        Rhat
+## Intercept              1.00
+## manufacturerchevrolet  1.00
+## manufacturerdodge      1.00
+## manufacturerford       1.00
+## manufacturerhonda      1.00
+## manufacturerhyundai    1.00
+## manufacturerjeep       1.00
+## manufacturerlandrover  1.00
+## manufacturerlincoln    1.00
+## manufacturermercury    1.00
+## manufacturernissan     1.00
+## manufacturerpontiac    1.00
+## manufacturersubaru     1.00
+## manufacturertoyota     1.00
+## manufacturervolkswagen 1.00
+## 
+## Family Specific Parameters: 
+##       Estimate Est.Error l-95% CI u-95% CI Eff.Sample Rhat
+## sigma     2.94      0.14     2.69     3.23       5423 1.00
+## 
+## Samples were drawn using sampling(NUTS). For each parameter, Eff.Sample 
+## is a crude measure of effective sample size, and Rhat is the potential 
+## scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
+<pre class="r"><code>plot(marginal_effects(result.anova))</code></pre>
+<p><img src="brms_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 </div>
-<div id="section-11" class="section level1">
+</div>
+<div id="section-12" class="section level1">
 <h1>階層線形モデル</h1>
 <p>各群に回帰線を当てはめますが，その全体的な傾向も要約して表します。 群ごとの散らばりを分布から作られているもの，と考えるところがミソです。</p>
-<div id="section-12" class="section level2">
+<div id="section-13" class="section level2">
 <h2>ランダム切片モデル</h2>
 <p>切片が群ごとに異なる，というモデルを考えます。 今回は，15のメーカによって切片が違うとします。</p>
 <pre class="r"><code>result.hlm1 &lt;- brm(cty~displ+(1|manufacturer),data=mpg)</code></pre>
@@ -878,15 +1038,15 @@ rstan::extract(result.brm$fit) %&gt;% data.frame %&gt;% head(10)</code></pre>
 ## Chain 1: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 ## Chain 1: Iteration: 2000 / 2000 [100%]  (Sampling)
 ## Chain 1: 
-## Chain 1:  Elapsed Time: 0.291771 seconds (Warm-up)
-## Chain 1:                0.256072 seconds (Sampling)
-## Chain 1:                0.547843 seconds (Total)
+## Chain 1:  Elapsed Time: 0.316467 seconds (Warm-up)
+## Chain 1:                0.27636 seconds (Sampling)
+## Chain 1:                0.592827 seconds (Total)
 ## Chain 1: 
 ## 
 ## SAMPLING FOR MODEL &#39;9fac491b11fc784e76e04c51fb3d0c72&#39; NOW (CHAIN 2).
 ## Chain 2: 
-## Chain 2: Gradient evaluation took 1.7e-05 seconds
-## Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 0.17 seconds.
+## Chain 2: Gradient evaluation took 2.1e-05 seconds
+## Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 0.21 seconds.
 ## Chain 2: Adjust your expectations accordingly!
 ## Chain 2: 
 ## Chain 2: 
@@ -903,15 +1063,15 @@ rstan::extract(result.brm$fit) %&gt;% data.frame %&gt;% head(10)</code></pre>
 ## Chain 2: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 ## Chain 2: Iteration: 2000 / 2000 [100%]  (Sampling)
 ## Chain 2: 
-## Chain 2:  Elapsed Time: 0.312334 seconds (Warm-up)
-## Chain 2:                0.259774 seconds (Sampling)
-## Chain 2:                0.572108 seconds (Total)
+## Chain 2:  Elapsed Time: 0.297376 seconds (Warm-up)
+## Chain 2:                0.245653 seconds (Sampling)
+## Chain 2:                0.543029 seconds (Total)
 ## Chain 2: 
 ## 
 ## SAMPLING FOR MODEL &#39;9fac491b11fc784e76e04c51fb3d0c72&#39; NOW (CHAIN 3).
 ## Chain 3: 
-## Chain 3: Gradient evaluation took 2e-05 seconds
-## Chain 3: 1000 transitions using 10 leapfrog steps per transition would take 0.2 seconds.
+## Chain 3: Gradient evaluation took 1.9e-05 seconds
+## Chain 3: 1000 transitions using 10 leapfrog steps per transition would take 0.19 seconds.
 ## Chain 3: Adjust your expectations accordingly!
 ## Chain 3: 
 ## Chain 3: 
@@ -928,15 +1088,15 @@ rstan::extract(result.brm$fit) %&gt;% data.frame %&gt;% head(10)</code></pre>
 ## Chain 3: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 ## Chain 3: Iteration: 2000 / 2000 [100%]  (Sampling)
 ## Chain 3: 
-## Chain 3:  Elapsed Time: 0.31172 seconds (Warm-up)
-## Chain 3:                0.255036 seconds (Sampling)
-## Chain 3:                0.566756 seconds (Total)
+## Chain 3:  Elapsed Time: 0.30527 seconds (Warm-up)
+## Chain 3:                0.246909 seconds (Sampling)
+## Chain 3:                0.552179 seconds (Total)
 ## Chain 3: 
 ## 
 ## SAMPLING FOR MODEL &#39;9fac491b11fc784e76e04c51fb3d0c72&#39; NOW (CHAIN 4).
 ## Chain 4: 
-## Chain 4: Gradient evaluation took 1.9e-05 seconds
-## Chain 4: 1000 transitions using 10 leapfrog steps per transition would take 0.19 seconds.
+## Chain 4: Gradient evaluation took 4e-05 seconds
+## Chain 4: 1000 transitions using 10 leapfrog steps per transition would take 0.4 seconds.
 ## Chain 4: Adjust your expectations accordingly!
 ## Chain 4: 
 ## Chain 4: 
@@ -953,9 +1113,9 @@ rstan::extract(result.brm$fit) %&gt;% data.frame %&gt;% head(10)</code></pre>
 ## Chain 4: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 ## Chain 4: Iteration: 2000 / 2000 [100%]  (Sampling)
 ## Chain 4: 
-## Chain 4:  Elapsed Time: 0.302916 seconds (Warm-up)
-## Chain 4:                0.240553 seconds (Sampling)
-## Chain 4:                0.543469 seconds (Total)
+## Chain 4:  Elapsed Time: 0.305949 seconds (Warm-up)
+## Chain 4:                0.251213 seconds (Sampling)
+## Chain 4:                0.557162 seconds (Total)
 ## Chain 4:</code></pre>
 <p>結果は次の通り。</p>
 <pre class="r"><code># 結果（要約）
@@ -970,16 +1130,16 @@ result.hlm1</code></pre>
 ## Group-Level Effects: 
 ## ~manufacturer (Number of levels: 15) 
 ##               Estimate Est.Error l-95% CI u-95% CI Eff.Sample Rhat
-## sd(Intercept)     1.52      0.40     0.88     2.44       1246 1.00
+## sd(Intercept)     1.52      0.41     0.89     2.45       1225 1.00
 ## 
 ## Population-Level Effects: 
 ##           Estimate Est.Error l-95% CI u-95% CI Eff.Sample Rhat
-## Intercept    25.48      0.78    23.89    26.95       1785 1.00
-## displ        -2.49      0.18    -2.85    -2.13       3065 1.00
+## Intercept    25.51      0.77    23.98    26.96       2074 1.00
+## displ        -2.49      0.18    -2.85    -2.15       3053 1.00
 ## 
 ## Family Specific Parameters: 
 ##       Estimate Est.Error l-95% CI u-95% CI Eff.Sample Rhat
-## sigma     2.29      0.11     2.08     2.52       4621 1.00
+## sigma     2.28      0.11     2.08     2.50       4543 1.00
 ## 
 ## Samples were drawn using sampling(NUTS). For each parameter, Eff.Sample 
 ## is a crude measure of effective sample size, and Rhat is the potential 
@@ -991,49 +1151,49 @@ result.hlm1$fit</code></pre>
 ## post-warmup draws per chain=1000, total post-warmup draws=4000.
 ## 
 ##                                         mean se_mean   sd    2.5%     25%
-## b_Intercept                            25.48    0.02 0.78   23.89   24.97
+## b_Intercept                            25.51    0.02 0.77   23.98   25.02
 ## b_displ                                -2.49    0.00 0.18   -2.85   -2.61
-## sd_manufacturer__Intercept              1.52    0.01 0.40    0.88    1.25
-## sigma                                   2.29    0.00 0.11    2.08    2.21
-## r_manufacturer[audi,Intercept]         -1.33    0.02 0.66   -2.62   -1.77
-## r_manufacturer[chevrolet,Intercept]     1.87    0.02 0.69    0.56    1.41
-## r_manufacturer[dodge,Intercept]        -1.34    0.01 0.58   -2.50   -1.71
-## r_manufacturer[ford,Intercept]         -0.16    0.01 0.62   -1.38   -0.56
-## r_manufacturer[honda,Intercept]         2.51    0.02 0.87    0.84    1.89
-## r_manufacturer[hyundai,Intercept]      -0.65    0.02 0.70   -2.07   -1.12
-## r_manufacturer[jeep,Intercept]         -0.44    0.01 0.82   -1.99   -0.99
-## r_manufacturer[land.rover,Intercept]   -2.01    0.02 1.03   -4.20   -2.67
-## r_manufacturer[lincoln,Intercept]      -0.37    0.02 1.04   -2.43   -1.06
-## r_manufacturer[mercury,Intercept]      -0.78    0.02 0.98   -2.74   -1.43
-## r_manufacturer[nissan,Intercept]        0.62    0.01 0.71   -0.78    0.16
-## r_manufacturer[pontiac,Intercept]       0.92    0.02 0.90   -0.85    0.32
-## r_manufacturer[subaru,Intercept]       -0.05    0.02 0.70   -1.44   -0.52
-## r_manufacturer[toyota,Intercept]        0.37    0.01 0.57   -0.72   -0.01
-## r_manufacturer[volkswagen,Intercept]    0.98    0.02 0.64   -0.23    0.55
-## lp__                                 -552.82    0.14 4.31 -562.60 -555.43
+## sd_manufacturer__Intercept              1.52    0.01 0.41    0.89    1.23
+## sigma                                   2.28    0.00 0.11    2.08    2.21
+## r_manufacturer[audi,Intercept]         -1.36    0.01 0.66   -2.67   -1.78
+## r_manufacturer[chevrolet,Intercept]     1.86    0.01 0.66    0.63    1.43
+## r_manufacturer[dodge,Intercept]        -1.36    0.01 0.54   -2.48   -1.70
+## r_manufacturer[ford,Intercept]         -0.18    0.01 0.59   -1.39   -0.57
+## r_manufacturer[honda,Intercept]         2.49    0.02 0.87    0.85    1.88
+## r_manufacturer[hyundai,Intercept]      -0.68    0.01 0.69   -2.05   -1.14
+## r_manufacturer[jeep,Intercept]         -0.46    0.02 0.79   -2.04   -0.97
+## r_manufacturer[land.rover,Intercept]   -2.04    0.02 1.06   -4.22   -2.73
+## r_manufacturer[lincoln,Intercept]      -0.39    0.02 1.02   -2.41   -1.07
+## r_manufacturer[mercury,Intercept]      -0.79    0.02 0.96   -2.75   -1.41
+## r_manufacturer[nissan,Intercept]        0.60    0.01 0.70   -0.77    0.13
+## r_manufacturer[pontiac,Intercept]       0.90    0.01 0.89   -0.80    0.29
+## r_manufacturer[subaru,Intercept]       -0.08    0.01 0.69   -1.45   -0.54
+## r_manufacturer[toyota,Intercept]        0.36    0.01 0.56   -0.70   -0.02
+## r_manufacturer[volkswagen,Intercept]    0.95    0.01 0.62   -0.24    0.53
+## lp__                                 -552.75    0.13 4.18 -562.11 -555.23
 ##                                          50%     75%   97.5% n_eff Rhat
-## b_Intercept                            25.51   26.02   26.95  1785    1
-## b_displ                                -2.50   -2.38   -2.13  3065    1
-## sd_manufacturer__Intercept              1.47    1.74    2.44  1246    1
-## sigma                                   2.29    2.36    2.52  4621    1
-## r_manufacturer[audi,Intercept]         -1.31   -0.90   -0.06  1861    1
-## r_manufacturer[chevrolet,Intercept]     1.86    2.33    3.23  2018    1
-## r_manufacturer[dodge,Intercept]        -1.34   -0.97   -0.22  1639    1
-## r_manufacturer[ford,Intercept]         -0.15    0.23    1.05  1869    1
-## r_manufacturer[honda,Intercept]         2.49    3.08    4.27  2421    1
-## r_manufacturer[hyundai,Intercept]      -0.64   -0.17    0.74  2103    1
-## r_manufacturer[jeep,Intercept]         -0.44    0.10    1.19  2990    1
-## r_manufacturer[land.rover,Intercept]   -1.97   -1.30   -0.09  2656    1
-## r_manufacturer[lincoln,Intercept]      -0.35    0.34    1.64  4345    1
-## r_manufacturer[mercury,Intercept]      -0.76   -0.11    1.08  4020    1
-## r_manufacturer[nissan,Intercept]        0.62    1.07    2.01  2360    1
-## r_manufacturer[pontiac,Intercept]       0.90    1.52    2.73  3089    1
-## r_manufacturer[subaru,Intercept]       -0.04    0.41    1.29  2060    1
-## r_manufacturer[toyota,Intercept]        0.35    0.74    1.53  1642    1
-## r_manufacturer[volkswagen,Intercept]    0.96    1.42    2.23  1635    1
-## lp__                                 -552.39 -549.80 -545.58   898    1
+## b_Intercept                            25.52   26.02   26.96  2074    1
+## b_displ                                -2.49   -2.37   -2.15  3053    1
+## sd_manufacturer__Intercept              1.46    1.74    2.45  1225    1
+## sigma                                   2.28    2.35    2.50  4543    1
+## r_manufacturer[audi,Intercept]         -1.34   -0.93   -0.07  2182    1
+## r_manufacturer[chevrolet,Intercept]     1.86    2.30    3.20  2257    1
+## r_manufacturer[dodge,Intercept]        -1.35   -0.99   -0.32  1840    1
+## r_manufacturer[ford,Intercept]         -0.17    0.22    0.96  2212    1
+## r_manufacturer[honda,Intercept]         2.46    3.06    4.29  2661    1
+## r_manufacturer[hyundai,Intercept]      -0.68   -0.22    0.67  2686    1
+## r_manufacturer[jeep,Intercept]         -0.46    0.08    1.08  2582    1
+## r_manufacturer[land.rover,Intercept]   -2.02   -1.31   -0.05  3190    1
+## r_manufacturer[lincoln,Intercept]      -0.39    0.30    1.60  4073    1
+## r_manufacturer[mercury,Intercept]      -0.77   -0.15    1.07  3878    1
+## r_manufacturer[nissan,Intercept]        0.59    1.05    2.00  2490    1
+## r_manufacturer[pontiac,Intercept]       0.88    1.46    2.73  3632    1
+## r_manufacturer[subaru,Intercept]       -0.09    0.39    1.27  2433    1
+## r_manufacturer[toyota,Intercept]        0.36    0.72    1.47  1832    1
+## r_manufacturer[volkswagen,Intercept]    0.95    1.34    2.17  1891    1
+## lp__                                 -552.35 -549.81 -545.65   989    1
 ## 
-## Samples were drawn using NUTS(diag_e) at Fri Mar  1 15:07:44 2019.
+## Samples were drawn using NUTS(diag_e) at Tue Mar  5 18:20:00 2019.
 ## For each parameter, n_eff is a crude measure of effective sample size,
 ## and Rhat is the potential scale reduction factor on split chains (at 
 ## convergence, Rhat=1).</code></pre>
@@ -1044,9 +1204,9 @@ mpg %&gt;%
   ggplot(aes(displ, y_hat, color = manufacturer)) +
   geom_smooth(method = &quot;lm&quot;, se = FALSE) +
   geom_point(aes(y = cty)) + ylab(&quot;cty&quot;)</code></pre>
-<p><img src="brms_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p><img src="brms_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
 </div>
-<div id="section-13" class="section level2">
+<div id="section-14" class="section level2">
 <h2>ランダム係数モデル</h2>
 <pre class="r"><code>result.hlm2 &lt;- brm(cty~displ+(displ|manufacturer),data=mpg)</code></pre>
 <pre><code>## Compiling the C++ model</code></pre>
@@ -1072,15 +1232,15 @@ mpg %&gt;%
 ## Chain 1: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 ## Chain 1: Iteration: 2000 / 2000 [100%]  (Sampling)
 ## Chain 1: 
-## Chain 1:  Elapsed Time: 1.26713 seconds (Warm-up)
-## Chain 1:                1.27353 seconds (Sampling)
-## Chain 1:                2.54066 seconds (Total)
+## Chain 1:  Elapsed Time: 1.30263 seconds (Warm-up)
+## Chain 1:                1.36318 seconds (Sampling)
+## Chain 1:                2.66581 seconds (Total)
 ## Chain 1: 
 ## 
 ## SAMPLING FOR MODEL &#39;53e4e9542f8ef009be512e8b26497a07&#39; NOW (CHAIN 2).
 ## Chain 2: 
-## Chain 2: Gradient evaluation took 3e-05 seconds
-## Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 0.3 seconds.
+## Chain 2: Gradient evaluation took 3.3e-05 seconds
+## Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 0.33 seconds.
 ## Chain 2: Adjust your expectations accordingly!
 ## Chain 2: 
 ## Chain 2: 
@@ -1097,15 +1257,15 @@ mpg %&gt;%
 ## Chain 2: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 ## Chain 2: Iteration: 2000 / 2000 [100%]  (Sampling)
 ## Chain 2: 
-## Chain 2:  Elapsed Time: 1.31955 seconds (Warm-up)
-## Chain 2:                1.23481 seconds (Sampling)
-## Chain 2:                2.55436 seconds (Total)
+## Chain 2:  Elapsed Time: 1.45759 seconds (Warm-up)
+## Chain 2:                1.36186 seconds (Sampling)
+## Chain 2:                2.81945 seconds (Total)
 ## Chain 2: 
 ## 
 ## SAMPLING FOR MODEL &#39;53e4e9542f8ef009be512e8b26497a07&#39; NOW (CHAIN 3).
 ## Chain 3: 
-## Chain 3: Gradient evaluation took 2.8e-05 seconds
-## Chain 3: 1000 transitions using 10 leapfrog steps per transition would take 0.28 seconds.
+## Chain 3: Gradient evaluation took 5.9e-05 seconds
+## Chain 3: 1000 transitions using 10 leapfrog steps per transition would take 0.59 seconds.
 ## Chain 3: Adjust your expectations accordingly!
 ## Chain 3: 
 ## Chain 3: 
@@ -1122,15 +1282,15 @@ mpg %&gt;%
 ## Chain 3: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 ## Chain 3: Iteration: 2000 / 2000 [100%]  (Sampling)
 ## Chain 3: 
-## Chain 3:  Elapsed Time: 1.35011 seconds (Warm-up)
-## Chain 3:                1.22405 seconds (Sampling)
-## Chain 3:                2.57416 seconds (Total)
+## Chain 3:  Elapsed Time: 1.555 seconds (Warm-up)
+## Chain 3:                0.811949 seconds (Sampling)
+## Chain 3:                2.36695 seconds (Total)
 ## Chain 3: 
 ## 
 ## SAMPLING FOR MODEL &#39;53e4e9542f8ef009be512e8b26497a07&#39; NOW (CHAIN 4).
 ## Chain 4: 
-## Chain 4: Gradient evaluation took 6e-05 seconds
-## Chain 4: 1000 transitions using 10 leapfrog steps per transition would take 0.6 seconds.
+## Chain 4: Gradient evaluation took 2.9e-05 seconds
+## Chain 4: 1000 transitions using 10 leapfrog steps per transition would take 0.29 seconds.
 ## Chain 4: Adjust your expectations accordingly!
 ## Chain 4: 
 ## Chain 4: 
@@ -1147,17 +1307,17 @@ mpg %&gt;%
 ## Chain 4: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 ## Chain 4: Iteration: 2000 / 2000 [100%]  (Sampling)
 ## Chain 4: 
-## Chain 4:  Elapsed Time: 1.6646 seconds (Warm-up)
-## Chain 4:                1.28142 seconds (Sampling)
-## Chain 4:                2.94602 seconds (Total)
+## Chain 4:  Elapsed Time: 1.36996 seconds (Warm-up)
+## Chain 4:                1.19265 seconds (Sampling)
+## Chain 4:                2.56261 seconds (Total)
 ## Chain 4:</code></pre>
-<pre><code>## Warning: There were 2 divergent transitions after warmup. Increasing adapt_delta above 0.8 may help. See
+<pre><code>## Warning: There were 13 divergent transitions after warmup. Increasing adapt_delta above 0.8 may help. See
 ## http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code></pre>
 <pre><code>## Warning: Examine the pairs() plot to diagnose sampling problems</code></pre>
 <p>結果は次の通り。</p>
 <pre class="r"><code># 結果（要約）
 result.hlm2</code></pre>
-<pre><code>## Warning: There were 2 divergent transitions after warmup. Increasing adapt_delta above 0.8 may help.
+<pre><code>## Warning: There were 13 divergent transitions after warmup. Increasing adapt_delta above 0.8 may help.
 ## See http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code></pre>
 <pre><code>##  Family: gaussian 
 ##   Links: mu = identity; sigma = identity 
@@ -1169,18 +1329,18 @@ result.hlm2</code></pre>
 ## Group-Level Effects: 
 ## ~manufacturer (Number of levels: 15) 
 ##                      Estimate Est.Error l-95% CI u-95% CI Eff.Sample Rhat
-## sd(Intercept)            3.25      1.05     1.52     5.65       1154 1.00
-## sd(displ)                0.89      0.33     0.37     1.66        985 1.01
-## cor(Intercept,displ)    -0.90      0.14    -0.99    -0.52        894 1.00
+## sd(Intercept)            3.20      1.04     1.48     5.52       1193 1.00
+## sd(displ)                0.87      0.33     0.28     1.56        841 1.00
+## cor(Intercept,displ)    -0.88      0.20    -0.99    -0.32        697 1.00
 ## 
 ## Population-Level Effects: 
 ##           Estimate Est.Error l-95% CI u-95% CI Eff.Sample Rhat
-## Intercept    25.75      1.18    23.29    28.14       1970 1.00
-## displ        -2.66      0.33    -3.33    -2.03       1784 1.00
+## Intercept    25.74      1.18    23.39    28.07       1836 1.00
+## displ        -2.66      0.32    -3.31    -2.03       1783 1.00
 ## 
 ## Family Specific Parameters: 
 ##       Estimate Est.Error l-95% CI u-95% CI Eff.Sample Rhat
-## sigma     2.20      0.11     2.00     2.42       4284 1.00
+## sigma     2.20      0.11     1.99     2.43       3721 1.00
 ## 
 ## Samples were drawn using sampling(NUTS). For each parameter, Eff.Sample 
 ## is a crude measure of effective sample size, and Rhat is the potential 
@@ -1192,83 +1352,83 @@ result.hlm2$fit</code></pre>
 ## post-warmup draws per chain=1000, total post-warmup draws=4000.
 ## 
 ##                                         mean se_mean   sd    2.5%     25%
-## b_Intercept                            25.75    0.03 1.18   23.29   25.02
-## b_displ                                -2.66    0.01 0.33   -3.33   -2.87
-## sd_manufacturer__Intercept              3.25    0.03 1.05    1.52    2.54
-## sd_manufacturer__displ                  0.89    0.01 0.33    0.37    0.66
-## cor_manufacturer__Intercept__displ     -0.90    0.00 0.14   -0.99   -0.97
-## sigma                                   2.20    0.00 0.11    2.00    2.13
-## r_manufacturer[audi,Intercept]         -2.77    0.04 1.86   -6.76   -3.94
-## r_manufacturer[chevrolet,Intercept]    -2.74    0.05 2.05   -6.77   -4.11
-## r_manufacturer[dodge,Intercept]        -2.13    0.04 1.84   -5.75   -3.33
-## r_manufacturer[ford,Intercept]         -0.43    0.04 2.31   -5.11   -1.90
-## r_manufacturer[honda,Intercept]         4.55    0.04 1.92    0.98    3.24
-## r_manufacturer[hyundai,Intercept]      -1.27    0.04 2.01   -5.58   -2.49
-## r_manufacturer[jeep,Intercept]         -1.51    0.04 2.34   -6.41   -2.98
-## r_manufacturer[land.rover,Intercept]    0.53    0.08 3.59   -6.53   -1.77
-## r_manufacturer[lincoln,Intercept]      -0.10    0.04 2.79   -5.76   -1.83
-## r_manufacturer[mercury,Intercept]      -0.50    0.05 2.90   -6.43   -2.27
-## r_manufacturer[nissan,Intercept]        1.55    0.04 2.11   -2.59    0.18
-## r_manufacturer[pontiac,Intercept]      -1.69    0.07 3.10   -8.31   -3.55
-## r_manufacturer[subaru,Intercept]        0.15    0.04 2.11   -4.08   -1.20
-## r_manufacturer[toyota,Intercept]        2.65    0.03 1.58   -0.31    1.54
-## r_manufacturer[volkswagen,Intercept]    3.44    0.04 1.88    0.10    2.11
-## r_manufacturer[audi,displ]              0.62    0.01 0.62   -0.52    0.21
-## r_manufacturer[chevrolet,displ]         1.04    0.01 0.47    0.15    0.71
-## r_manufacturer[dodge,displ]             0.30    0.01 0.45   -0.55    0.00
-## r_manufacturer[ford,displ]              0.16    0.01 0.55   -0.89   -0.19
-## r_manufacturer[honda,displ]            -1.03    0.02 0.76   -2.56   -1.53
-## r_manufacturer[hyundai,displ]           0.30    0.01 0.69   -1.03   -0.15
-## r_manufacturer[jeep,displ]              0.36    0.01 0.57   -0.71   -0.03
-## r_manufacturer[land.rover,displ]       -0.51    0.02 0.88   -2.38   -1.05
-## r_manufacturer[lincoln,displ]           0.01    0.01 0.63   -1.21   -0.40
-## r_manufacturer[mercury,displ]           0.03    0.01 0.72   -1.39   -0.42
-## r_manufacturer[nissan,displ]           -0.24    0.01 0.60   -1.42   -0.62
-## r_manufacturer[pontiac,displ]           0.72    0.02 0.82   -0.69    0.16
-## r_manufacturer[subaru,displ]           -0.03    0.01 0.72   -1.50   -0.46
-## r_manufacturer[toyota,displ]           -0.69    0.01 0.45   -1.63   -0.99
-## r_manufacturer[volkswagen,displ]       -1.00    0.01 0.67   -2.48   -1.41
-## lp__                                 -569.79    0.17 5.66 -581.67 -573.34
+## b_Intercept                            25.74    0.03 1.18   23.39   24.96
+## b_displ                                -2.66    0.01 0.32   -3.31   -2.87
+## sd_manufacturer__Intercept              3.20    0.03 1.04    1.48    2.48
+## sd_manufacturer__displ                  0.87    0.01 0.33    0.28    0.65
+## cor_manufacturer__Intercept__displ     -0.88    0.01 0.20   -0.99   -0.97
+## sigma                                   2.20    0.00 0.11    1.99    2.12
+## r_manufacturer[audi,Intercept]         -2.73    0.04 1.77   -6.34   -3.87
+## r_manufacturer[chevrolet,Intercept]    -2.65    0.05 2.03   -6.50   -4.02
+## r_manufacturer[dodge,Intercept]        -2.15    0.04 1.84   -6.11   -3.30
+## r_manufacturer[ford,Intercept]         -0.45    0.04 2.31   -5.16   -1.92
+## r_manufacturer[honda,Intercept]         4.51    0.05 1.96    1.02    3.13
+## r_manufacturer[hyundai,Intercept]      -1.24    0.04 1.97   -5.32   -2.45
+## r_manufacturer[jeep,Intercept]         -1.57    0.04 2.32   -6.41   -2.99
+## r_manufacturer[land.rover,Intercept]    0.36    0.08 3.47   -6.45   -1.79
+## r_manufacturer[lincoln,Intercept]      -0.05    0.05 2.77   -5.84   -1.66
+## r_manufacturer[mercury,Intercept]      -0.53    0.05 2.91   -6.62   -2.35
+## r_manufacturer[nissan,Intercept]        1.55    0.04 2.01   -2.41    0.20
+## r_manufacturer[pontiac,Intercept]      -1.48    0.07 3.04   -7.93   -3.32
+## r_manufacturer[subaru,Intercept]        0.20    0.04 2.18   -4.34   -1.08
+## r_manufacturer[toyota,Intercept]        2.64    0.04 1.59   -0.34    1.52
+## r_manufacturer[volkswagen,Intercept]    3.44    0.05 1.86    0.24    2.12
+## r_manufacturer[audi,displ]              0.60    0.01 0.59   -0.48    0.20
+## r_manufacturer[chevrolet,displ]         1.02    0.01 0.47    0.09    0.71
+## r_manufacturer[dodge,displ]             0.31    0.01 0.45   -0.54    0.00
+## r_manufacturer[ford,displ]              0.17    0.01 0.55   -0.86   -0.20
+## r_manufacturer[honda,displ]            -1.00    0.02 0.78   -2.64   -1.50
+## r_manufacturer[hyundai,displ]           0.29    0.01 0.67   -0.97   -0.14
+## r_manufacturer[jeep,displ]              0.36    0.01 0.56   -0.67   -0.02
+## r_manufacturer[land.rover,displ]       -0.48    0.02 0.85   -2.28   -0.99
+## r_manufacturer[lincoln,displ]           0.00    0.01 0.62   -1.24   -0.39
+## r_manufacturer[mercury,displ]           0.03    0.01 0.72   -1.38   -0.41
+## r_manufacturer[nissan,displ]           -0.24    0.01 0.57   -1.38   -0.62
+## r_manufacturer[pontiac,displ]           0.67    0.02 0.79   -0.71    0.12
+## r_manufacturer[subaru,displ]           -0.05    0.01 0.75   -1.58   -0.47
+## r_manufacturer[toyota,displ]           -0.69    0.01 0.46   -1.64   -0.99
+## r_manufacturer[volkswagen,displ]       -1.00    0.02 0.67   -2.48   -1.42
+## lp__                                 -569.93    0.18 5.60 -581.80 -573.52
 ##                                          50%     75%   97.5% n_eff Rhat
-## b_Intercept                            25.76   26.50   28.14  1970 1.00
-## b_displ                                -2.66   -2.45   -2.03  1784 1.00
-## sd_manufacturer__Intercept              3.13    3.83    5.65  1154 1.00
-## sd_manufacturer__displ                  0.85    1.07    1.66   985 1.01
-## cor_manufacturer__Intercept__displ     -0.94   -0.88   -0.52   894 1.00
-## sigma                                   2.19    2.27    2.42  4284 1.00
-## r_manufacturer[audi,Intercept]         -2.67   -1.53    0.65  2401 1.00
-## r_manufacturer[chevrolet,Intercept]    -2.81   -1.30    1.21  1799 1.00
-## r_manufacturer[dodge,Intercept]        -2.10   -0.89    1.44  2717 1.00
-## r_manufacturer[ford,Intercept]         -0.37    1.04    4.07  3360 1.00
-## r_manufacturer[honda,Intercept]         4.49    5.82    8.48  2284 1.00
-## r_manufacturer[hyundai,Intercept]      -1.20    0.07    2.56  3115 1.00
-## r_manufacturer[jeep,Intercept]         -1.41    0.04    2.95  3452 1.00
-## r_manufacturer[land.rover,Intercept]    0.39    2.78    7.89  2128 1.00
-## r_manufacturer[lincoln,Intercept]      -0.10    1.66    5.38  3996 1.00
-## r_manufacturer[mercury,Intercept]      -0.48    1.35    5.18  3866 1.00
-## r_manufacturer[nissan,Intercept]        1.49    2.88    5.89  3434 1.00
-## r_manufacturer[pontiac,Intercept]      -1.42    0.36    3.82  2199 1.00
-## r_manufacturer[subaru,Intercept]        0.04    1.50    4.49  3150 1.00
-## r_manufacturer[toyota,Intercept]        2.61    3.68    5.87  2516 1.00
-## r_manufacturer[volkswagen,Intercept]    3.34    4.65    7.36  2133 1.00
-## r_manufacturer[audi,displ]              0.60    1.00    1.94  2116 1.00
-## r_manufacturer[chevrolet,displ]         1.03    1.35    1.99  1594 1.00
-## r_manufacturer[dodge,displ]             0.30    0.59    1.21  2576 1.00
-## r_manufacturer[ford,displ]              0.14    0.51    1.31  3102 1.00
-## r_manufacturer[honda,displ]            -1.01   -0.52    0.39  1722 1.00
-## r_manufacturer[hyundai,displ]           0.27    0.70    1.79  3052 1.00
-## r_manufacturer[jeep,displ]              0.33    0.73    1.54  2991 1.00
-## r_manufacturer[land.rover,displ]       -0.45    0.07    1.12  2439 1.00
-## r_manufacturer[lincoln,displ]           0.00    0.41    1.28  3875 1.00
-## r_manufacturer[mercury,displ]           0.02    0.48    1.48  4194 1.00
-## r_manufacturer[nissan,displ]           -0.24    0.13    0.96  3670 1.00
-## r_manufacturer[pontiac,displ]           0.65    1.20    2.50  2221 1.00
-## r_manufacturer[subaru,displ]           -0.02    0.42    1.41  3374 1.00
-## r_manufacturer[toyota,displ]           -0.67   -0.39    0.16  2650 1.00
-## r_manufacturer[volkswagen,displ]       -0.95   -0.52    0.16  2102 1.00
-## lp__                                 -569.57 -565.89 -559.39  1111 1.00
+## b_Intercept                            25.76   26.50   28.07  1836 1.00
+## b_displ                                -2.66   -2.45   -2.03  1783 1.00
+## sd_manufacturer__Intercept              3.09    3.80    5.52  1193 1.00
+## sd_manufacturer__displ                  0.84    1.06    1.56   841 1.00
+## cor_manufacturer__Intercept__displ     -0.94   -0.87   -0.32   697 1.00
+## sigma                                   2.20    2.27    2.43  3721 1.00
+## r_manufacturer[audi,Intercept]         -2.66   -1.53    0.63  2365 1.00
+## r_manufacturer[chevrolet,Intercept]    -2.68   -1.35    1.53  1409 1.00
+## r_manufacturer[dodge,Intercept]        -2.07   -0.94    1.38  2635 1.00
+## r_manufacturer[ford,Intercept]         -0.40    1.04    3.99  3052 1.00
+## r_manufacturer[honda,Intercept]         4.45    5.77    8.53  1777 1.00
+## r_manufacturer[hyundai,Intercept]      -1.15   -0.01    2.55  2985 1.00
+## r_manufacturer[jeep,Intercept]         -1.41   -0.05    2.61  3328 1.00
+## r_manufacturer[land.rover,Intercept]    0.27    2.51    7.44  2106 1.00
+## r_manufacturer[lincoln,Intercept]       0.00    1.62    5.44  3276 1.00
+## r_manufacturer[mercury,Intercept]      -0.44    1.30    5.06  4136 1.00
+## r_manufacturer[nissan,Intercept]        1.52    2.88    5.56  2856 1.00
+## r_manufacturer[pontiac,Intercept]      -1.30    0.55    4.08  2121 1.00
+## r_manufacturer[subaru,Intercept]        0.22    1.49    4.71  2823 1.00
+## r_manufacturer[toyota,Intercept]        2.58    3.70    5.82  1966 1.00
+## r_manufacturer[volkswagen,Intercept]    3.36    4.63    7.36  1590 1.00
+## r_manufacturer[audi,displ]              0.57    0.98    1.85  2078 1.00
+## r_manufacturer[chevrolet,displ]         1.03    1.32    1.94  1400 1.00
+## r_manufacturer[dodge,displ]             0.29    0.59    1.28  2394 1.00
+## r_manufacturer[ford,displ]              0.15    0.51    1.31  2590 1.00
+## r_manufacturer[honda,displ]            -0.99   -0.47    0.46  1423 1.00
+## r_manufacturer[hyundai,displ]           0.26    0.69    1.69  3093 1.00
+## r_manufacturer[jeep,displ]              0.32    0.72    1.55  2990 1.00
+## r_manufacturer[land.rover,displ]       -0.43    0.06    1.10  2397 1.00
+## r_manufacturer[lincoln,displ]          -0.01    0.38    1.29  3282 1.00
+## r_manufacturer[mercury,displ]           0.01    0.49    1.49  4145 1.00
+## r_manufacturer[nissan,displ]           -0.23    0.13    0.86  3014 1.00
+## r_manufacturer[pontiac,displ]           0.60    1.15    2.38  2073 1.00
+## r_manufacturer[subaru,displ]           -0.06    0.39    1.54  2921 1.00
+## r_manufacturer[toyota,displ]           -0.68   -0.37    0.13  2106 1.00
+## r_manufacturer[volkswagen,displ]       -0.96   -0.53    0.15  1449 1.00
+## lp__                                 -569.62 -566.00 -559.85   992 1.01
 ## 
-## Samples were drawn using NUTS(diag_e) at Fri Mar  1 15:08:30 2019.
+## Samples were drawn using NUTS(diag_e) at Tue Mar  5 18:20:45 2019.
 ## For each parameter, n_eff is a crude measure of effective sample size,
 ## and Rhat is the potential scale reduction factor on split chains (at 
 ## convergence, Rhat=1).</code></pre>
@@ -1279,7 +1439,7 @@ mpg %&gt;%
   ggplot(aes(displ, y_hat, color = manufacturer)) +
   geom_smooth(method = &quot;lm&quot;, se = FALSE) +
   geom_point(aes(y = cty)) + ylab(&quot;cty&quot;)</code></pre>
-<p><img src="brms_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><img src="brms_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 </div>
 </div>
 

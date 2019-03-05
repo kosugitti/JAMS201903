@@ -93,6 +93,18 @@ predict(result.brm) %>% head(10)
 result.brm$model
 ```
 
+
+## 一般線形モデル
+
+平均値の差の検定なども，brmsパッケージを使った方が簡単・確実・わかりやすい。
+```{r}
+mpg$manufacturer <- as.factor(mpg$manufacturer)
+result.anova <- brm(cty~manufacturer,data=mpg)
+result.anova
+plot(marginal_effects(result.anova))
+```
+
+
 # 階層線形モデル
 
 各群に回帰線を当てはめますが，その全体的な傾向も要約して表します。

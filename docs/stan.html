@@ -445,7 +445,7 @@ model &lt;- stan_model(&quot;SevenScientist.stan&quot;)</code></pre>
 <div id="section-3" class="section level3">
 <h3>推定</h3>
 <pre class="r"><code>fit &lt;- sampling(model,sc7,iter=3000,warmup=1000,chains=4,thin=1)</code></pre>
-<pre><code>## Warning: There were 2274 divergent transitions after warmup. Increasing adapt_delta above 0.8 may help. See
+<pre><code>## Warning: There were 1917 divergent transitions after warmup. Increasing adapt_delta above 0.8 may help. See
 ## http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code></pre>
 <pre><code>## Warning: Examine the pairs() plot to diagnose sampling problems</code></pre>
 <pre class="r"><code>##  表示
@@ -454,18 +454,18 @@ fit</code></pre>
 ## 4 chains, each with iter=3000; warmup=1000; thin=1; 
 ## post-warmup draws per chain=2000, total post-warmup draws=8000.
 ## 
-##          mean se_mean      sd   2.5%   25%   50%    75%   97.5% n_eff Rhat
-## mu       9.83    0.07    0.16   9.60  9.63  9.83   9.95   10.07     6 1.30
-## sig[1] 153.76   13.63  676.42  17.12 36.88 74.63 117.11  803.14  2464 1.00
-## sig[2] 650.23  740.84 1319.45   2.99  6.25 12.44  75.02 4099.93     3 2.20
-## sig[3]  96.43  101.10  287.58   0.74  1.63  3.58  19.47  520.77     8 1.16
-## sig[4]   1.06    0.17   11.02   0.01  0.08  0.23   1.01    3.76  4144 1.00
-## sig[5]   1.55    0.41   20.67   0.00  0.07  0.30   0.72    7.21  2484 1.00
-## sig[6]   0.66    0.11    5.60   0.00  0.06  0.19   0.53    2.83  2745 1.00
-## sig[7]   1.02    0.15    6.61   0.01  0.13  0.30   0.47    5.57  1890 1.00
-## lp__    -6.35    1.76    3.71 -12.95 -8.88 -5.39  -3.60   -0.68     4 1.43
+##          mean se_mean      sd  2.5%   25%   50%   75%  97.5% n_eff Rhat
+## mu       9.88    0.01    0.12  9.60  9.81  9.86  9.95  10.06   128 1.04
+## sig[1] 199.66   36.85 1979.60 16.77 28.48 46.86 92.32 854.54  2885 1.00
+## sig[2]  51.23   14.52  788.07  2.85  5.52  9.37 14.24 144.60  2947 1.00
+## sig[3]  63.59   53.92 1727.89  0.81  1.63  2.58  5.44  61.07  1027 1.00
+## sig[4]   0.60    0.12    6.57  0.00  0.01  0.12  0.30   3.06  3119 1.00
+## sig[5]   8.42    7.19   58.91  0.01  0.17  0.37  0.80  14.13    67 1.07
+## sig[6]   0.56    0.14    5.37  0.00  0.04  0.13  0.34   2.28  1566 1.00
+## sig[7]   2.45    1.27   16.51  0.00  0.11  0.29  0.62  10.07   170 1.02
+## lp__    -3.55    0.58    3.10 -9.96 -5.55 -3.46 -1.36   1.83    29 1.14
 ## 
-## Samples were drawn using NUTS(diag_e) at Fri Mar  1 15:09:03 2019.
+## Samples were drawn using NUTS(diag_e) at Tue Mar  5 18:21:19 2019.
 ## For each parameter, n_eff is a crude measure of effective sample size,
 ## and Rhat is the potential scale reduction factor on split chains (at 
 ## convergence, Rhat=1).</code></pre>
@@ -539,7 +539,7 @@ fit</code></pre>
 ## theta   0.25    0.00 0.09   0.06   0.19   0.26   0.32   0.43  2039    1
 ## lp__  -68.15    0.02 0.91 -70.85 -68.31 -67.78 -67.58 -67.52  1591    1
 ## 
-## Samples were drawn using NUTS(diag_e) at Fri Mar  1 15:09:33 2019.
+## Samples were drawn using NUTS(diag_e) at Tue Mar  5 18:21:20 2019.
 ## For each parameter, n_eff is a crude measure of effective sample size,
 ## and Rhat is the potential scale reduction factor on split chains (at 
 ## convergence, Rhat=1).</code></pre>
